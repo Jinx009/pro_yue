@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/Swiper/3.1.7/css/swiper.min.css">
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/Swiper/3.1.7/js/swiper.jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/buildDate.css">
+</head>
+<body class="bg">
+    <header>
+        <span class="center">身份认证</span>
+    </header>
+    <div class="ID-col"></div>
+    <div class="ID-list">
+        <div class="ID-col ID-col-one">
+            <p class="left"><span>姓名</span></p>
+            <div class="right">
+                <input type="text" placeholder="请输入姓名"/>
+            </div>
+        </div>
+        <div class="ID-col ID-col-two">
+            <p class="left"><span>性别</span></p>
+            <div class="right">
+                <label class="one_radio-button">
+                    <input type="radio" name="searcher" id="male" value="02" checked>
+                    <div class="one_radio-button__checkmark"></div>
+                    <span>男士</span>
+                </label>
+                <label class="one_radio-button">
+                    <input type="radio" name="searcher" id="female" value="02">
+                    <div class="one_radio-button__checkmark"></div>
+                    <span>女士</span>
+                </label>
+            </div>
+        </div>
+        <div class="ID-col ID-col-three">
+            <p class="left"><b>*</b><span>嘉宾号</span></p>
+            <div class="right">
+                <input type="text" placeholder="请输入您的嘉宾号（必填）"/>
+            </div>
+        </div>
+        <div class="ID-col ID-col-one">
+            <p class="left"><span>年龄</span></p>
+            <div class="right">
+                <input type="text" placeholder="请输入您的年龄"/>
+            </div>
+        </div>
+        <div class="ID-col ID-col-one">
+            <p class="left"><span>户籍</span></p>
+            <div class="right">
+                <input type="text" placeholder="请输入您的户籍"/>
+            </div>
+        </div>
+        <div class="ID-col ID-col-one">
+            <p class="left"><span>职业</span></p>
+            <div class="right sel">
+                <!-- <input placeholder="请选择您的职业"/> -->
+                <p>请选择您的职业</p>
+                <ul>
+                    <li data-value='设计师'>设计师</li>
+                    <li data-value='CTO'>CTO</li>
+                    <li data-value='CEO'>CEO</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ID-col ID-col-one">
+            <p class="left"><span>兴趣爱好</span></p>
+            <div class="right">
+                <input type="text" placeholder="请输入您的兴趣爱好"/>
+            </div>
+        </div>
+        <div class="ID-col ID-col-one">
+            <p class="left"><span>择偶要求</span></p>
+            <div class="right">
+                <input type="text" placeholder="请输入您心仪的年龄、职业、爱好等"/>
+            </div>
+        </div>
+        <div class="ID-col ID-col-one">
+            <p class="left"><span>星座</span></p>
+            <div class="right">
+                <input type="text" placeholder="请输入您的星座（可选）"/>
+            </div>
+        </div>
+        <div class="ID-col ID-col-one">
+            <p class="left"><span>学历</span></p>
+            <div class="right">
+
+            </div>
+        </div>
+        <div class="tag-col">
+            <h3>我的标签</h3>
+            <div class="my-tag"><span>旅游</span><span>会做饭</span><span class="actived">暖男</span></div>
+        </div>
+    </div>
+    <div class="ID-list">
+        <h3>上传照片</h3>
+        <div class="add-pic">
+            <div><img src="img/add_pic.jpg"/></div>
+            <div><img src="img/add_pic.jpg"/></div>
+            <div><img src="img/add_pic.jpg"/></div>
+        </div>
+    </div>
+    <div class="ID-list">
+        <h3>个人简介</h3>
+        <textarea placeholder="请输入一段介绍自己的话吧(XX字数以内)"></textarea>
+    </div>
+    <div class="footer-btn"><a href="javascript:;" class="btn">立即提交</a></div>
+    <script type="text/javascript">
+        $('.sel > p').on('click', function(event) {
+            $('.sel').toggleClass('open');
+        });
+        $('.sel ul li').on('click', function(event) {
+            var _this = $(this);
+            $('.sel > p').text(_this.attr('data-value'));
+            _this.addClass('selected').siblings().removeClass('selected');
+            $('.sel').removeClass('open');
+        });
+    </script>
+</body>
+</html>
