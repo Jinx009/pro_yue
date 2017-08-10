@@ -9,7 +9,7 @@ public class WechatData {
 	public static final String TOKEN = "";
 	public static final String CHAR_SET = "utf-8";
 	public static final String OAUTH_URL_ONE = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+APP_ID+"&redirect_uri=";
-	public static final String OAUTH_URL_TWO = "http://online.globalrave.cn";
+	public static final String OAUTH_URL_TWO = "http://meet.globalrave.cn";
 	public static final String OAUTH_URL_THREE = "&response_type=code&scope=snsapi_base&state=state#wechat_redirect";
 	
 	

@@ -15,8 +15,6 @@
 	    height: 100%;
 	    margin: 0;
 	    padding: 0;
-	 /*    background: url(/themes/img/love-1080p.gif) no-repeat center center fixed;
-	    background-size: cover; */
     }
     .test{
     	position:absolute;
@@ -26,27 +24,10 @@
     	height: 100%;
     }
     </style>
-    <!-- <div id="logo" class="logo-none"><img src="/themes/img/logo2.png" /></div> -->
     <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="/themes/js/common.js"></script>
     <!-- <script src='/themes/js/snowfall.min.js'></script> -->
     <script type='text/javascript'>  
-    	$(function(){
-    	/* 	$('.test').load(function(){
-    			var name = $('#name').val();
-        		var pic = $('#pic').val();
-        		var userId = $('#userId').val();
-    			var status = $('#status').val();
-                setTimeout(function(){
-                	setStorage("userId",userId);
-               		if(0==status){
-                     	   location.href = '/info.html?userId='+userId;
-                    }else{
-                     	   location.href = '/select.html?userId='+userId;
-                    }
-                },3000);   
-    		}); */
-    	})
     	function gogogo(){
     		var name = $('#name').val();
     		var pic = $('#pic').val();
@@ -68,6 +49,6 @@
 	<input type="hidden" id="pic" value="${pic }" >
 	<div class="heart"></div>
 	<div class="stars"></div>
-	<img alt="" src="<%=request.getContextPath() %>/themes/img/bg.jpeg" onclick="gogogo();" class="test" >
+	<img alt="" src="<%=request.getContextPath() %>/themes/img/index_1.jpeg" onclick="gogogo();" class="test" >
    </body>
 </html>

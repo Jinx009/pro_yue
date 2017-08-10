@@ -8,7 +8,7 @@ public interface QRCodeService {
 
 	public QRCode save(QRCode qrCode);
 	
-	public QRCode find(String key);
+	public QRCode findByKey(String key);
 	
 	public List<QRCode> findAll();
 	

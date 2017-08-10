@@ -74,23 +74,6 @@
     			})
     		}
     	}) 
-  /*   	var res = {};
-    	res.data = {};
-    	res.data.likes = '123';
-    	res.data.sex = '男';
-    	res.data.address = '上海宝山';
-    	res.data.num = '001';
-    	res.data.realName = 'Jinx';
-    	res.data.age = '22';
-    	res.data.tag = '<span>旅游</span><span>会做饭</span><span>暖男</span>';
-    	res.data.jobInfo = '程序员';
-    	res.data.edu = '本科';
-    	res.data.info = '吾虽浪迹天涯，却未迷失本心。';
-    	res.data.imgList = ['/themes/img/banner.png','/themes/img/banner.png'];
-    	new Vue({
-			el: 'body',
-			data:{model:res.data}
-		}) */
     })
     </script>
 </head>
@@ -140,6 +123,10 @@
 		<div class="list-col inform-col" v-if="'1'===model.xStatus" >
 			<p class="left">微信号：</p>
 			<p class="right" v-text="model.wechatAccount" ></p>
+		</div>
+		<div class="list-col inform-col" v-if="'1'===model.xStatus" >
+			<p class="left">手机号：</p>
+			<p class="right" v-text="model.mobilePhone" ></p>
 		</div>
 		<div class="list-col inform-col">
 			<p class="left">兴趣爱好：</p>

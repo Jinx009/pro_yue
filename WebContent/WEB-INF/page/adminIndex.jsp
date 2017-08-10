@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>后台</title>
+    <title>用户管理</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.bootcss.com/layer/3.0.1/mobile/need/layer.min.css" rel="stylesheet">
@@ -35,13 +35,20 @@
         </div>
     </div>
 </nav>
-<select class="form-control">
-  <
-</select>
+<div class="form-group has-success has-feedback">
+    <label class="control-label col-sm-3" for="inputGroupSuccess2">选择平台</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <span class="input-group-addon">用户:<font id="qrcodeNum" ></font>人</span>
+        <select class="form-control" id="codes" onchange="getUserData();" >
+		  <option v-for="code in codes" v-bind:value="code.keyword" v-text="code.description" ></option>
+		</select>
+      </div>
+    </div>
+  </div>
 <table class="table table-striped info-table">
     <thead>
         <tr>
-            <th>编号</th>
             <th>图片</th>
             <th>姓名</th>
             <th>性别</th>
@@ -49,9 +56,8 @@
             <th>学历</th>
         </tr>
     </thead>
-    <tbody>
-        <tr v-for="model in items" >
-            <td v-text="model.num" ></td>
+    <tbody id="users" >
+        <tr v-for="model in users" >
             <td>
                 <img v-bind:src="model.pic1" height="38px" >
             </td>
@@ -70,11 +76,28 @@
     var ress = {};
     ress.data = new Array();
      $(function(){
-        
+        getqrcode();
      })
-     function getUserData(){
+     function getqrcode(){
     	 $.ajax({
-             url:'/getAllUserList.html',
+    		url:'/admin/QRCodeList.html',
+    	 	type:'GET',
+    	 	dataType:'json',
+    	 	success:function(res){
+    	 		if(res!=null&&res.data!=null){
+    	 			 new Vue({
+                         el: '#codes',
+                         data:{codes:res.data}
+                     })
+    	 			getUserData();
+    	 		}
+    	 	}
+    	 })
+     }
+     function getUserData(){
+    	 var qrcode = $('#codes').val();
+    	 $.ajax({
+             url:'/admin/getAllUserList.html?qrcode='+qrcode,
              type:'GET',
              dataType:'JSON',
              success:function(res){
@@ -85,11 +108,13 @@
              				ress.data.push(res.data[i]);
              			}
              		}
+             		console.log(ress)
+             		 new Vue({
+                         el: '#users',
+                         data:{users:ress.data}
+                     })
+             		$('#qrcodeNum').html('<font style="color:red;">'+res.size+'</font>');
              	}
-                 new Vue({
-                     el: 'body',
-                     data:{items:ress.data}
-                 })
              }
          })
      }

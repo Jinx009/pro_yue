@@ -18,12 +18,12 @@ public class QRCodeServiceImpl implements QRCodeService{
 		return QRCodeDao.save(qrCode);
 	}
 
-	public QRCode find(String key) {
+	public QRCode findByKey(String key) {
 		return QRCodeDao.getByKey(key);
 	}
 
 	public List<QRCode> findAll() {
-		return QRCodeDao.findAll();
+		return QRCodeDao.findAllByTime();
 	}
 
 }

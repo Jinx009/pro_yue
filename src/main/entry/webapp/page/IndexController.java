@@ -37,7 +37,8 @@ public class IndexController {
 	@RequestMapping(value = "/index")
 	public String index(HttpServletRequest request,HttpServletResponse response) throws ClientProtocolException, IOException{
 		String code = request.getParameter("code");
-		System.out.println("code:"+code);
+		String qrcode = request.getParameter("qKey");
+		System.out.println("code:"+code+"----"+qrcode);
 		Integer userId = 0;
 		Integer status = 0;
 		if(null!=code&&!"".equals(code)){
@@ -62,6 +63,7 @@ public class IndexController {
 					user.setStatus(0);
 					user.setLoginTime(new Date());
 					user.setLoginTimes(1);
+					user.setQrcode(qrcode);
 					user = userAService.save(user);
 				}
 				status = user.getStatus();

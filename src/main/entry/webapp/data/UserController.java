@@ -71,14 +71,16 @@ public class UserController {
 	 * @param response
 	 * @throws IOException
 	 */
-	@RequestMapping(value = "/getAllUserList")
+	@RequestMapping(value = "/admin/getAllUserList")
 	public void allUser(HttpServletRequest request,HttpServletResponse response) throws IOException{
-			String hql = " FROM UserA ";
+		    String qrcode = request.getParameter("qrcode");
+			String hql = " FROM UserA WHERE qrcode = '"+qrcode+"' AND realName is not null";
 			List<UserA> list = userAService.getByHql(hql);
 			
 			data = new HashMap<String,Object>();
 			data.put("status","success");
 			data.put("data",list);
+			data.put("size", list.size());
 			
 			HttpWebIOHelper._printWebJson(data, response);
 	}

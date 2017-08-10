@@ -12,11 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+import service.basicFunctions.QRCodeService;
 import service.basicFunctions.UserService;
 
 import common.wechat.WechatData;
 import common.wechat.WechatUtil;
-
+import database.models.QRCode;
 import database.models.User;
 
 @Controller
@@ -24,7 +26,20 @@ public class PageController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private QRCodeService QRCodeService;
 
+	/**
+	 * 中转页
+	 * @return
+	 */
+	@RequestMapping(value = "/q")
+	public String q(HttpServletRequest request){
+		String key = request.getParameter("key");
+		QRCode qrCode = QRCodeService.findByKey(key);
+		String realUrl = qrCode.getRealUrl();
+		return "redirect:"+realUrl;
+	}
 	
 	/**
 	 * 微信授权获取昵称
