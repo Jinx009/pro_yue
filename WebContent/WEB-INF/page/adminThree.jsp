@@ -55,7 +55,7 @@
         		<tr>
         			<th>关键字</th>
         			<td>
-        				<input type="text" id="key" class="form-control" >
+        				<input type="text" placeholder="仅限英文" id="key" class="form-control" >
         			</td>
         		</tr>
         		<tr>

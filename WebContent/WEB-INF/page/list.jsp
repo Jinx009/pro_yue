@@ -60,7 +60,6 @@
     		    			res.data[i].realName = res.data[i].user.realName;
     		    			res.data[i].pic = '/themes/data/'+res.data[i].user.pic1;
     		    		}	
-    		    		console.log(res.data);
     		    	}
     		    	new Vue({
   	   				  el: 'body',

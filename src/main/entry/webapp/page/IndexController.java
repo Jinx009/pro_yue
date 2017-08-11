@@ -94,6 +94,7 @@ public class IndexController {
 	*/
 	@RequestMapping(value = "/adminIndex")
 	public String adminIndex(HttpServletRequest request,HttpServletResponse response){
+		request.setAttribute("_now",request.getParameter("_now"));
 		String sessionStatus = (String) request.getSession().getAttribute("sessionUser");
 		if(sessionStatus==null||!"success".equals(sessionStatus)){
 			return "/login";	

@@ -165,6 +165,8 @@ public class UserConnController{
 		Integer likeUserId = Integer.valueOf(request.getParameter("likeUserId"));
 		UserA user = userAService.findById(userId);
 		UserA likeUser = userAService.findById(likeUserId);
+		likeUser.setStarNum(Integer.valueOf(likeUser.getStarNum())+1);
+		userAService.update(likeUser);
 		String hql = " FROM UserConnA WHERE ((likeUser.id = "+likeUserId+") and (user.id = "+userId+")) or ((likeUser.id = "+userId+") and (user.id = "+likeUserId+")) ";
 		List<UserConnA> list = userConnAService.getByHql(hql);
 		if(null!=list){//互相喜欢

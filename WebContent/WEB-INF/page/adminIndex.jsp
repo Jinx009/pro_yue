@@ -16,6 +16,7 @@
     </style>
 </head>
 <body>
+<input type="hidden" id="_now" value="${_now }" >
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -40,8 +41,8 @@
     <div class="col-sm-9">
       <div class="input-group">
         <span class="input-group-addon">用户:<font id="qrcodeNum" ></font>人</span>
-        <select class="form-control" id="codes" onchange="getUserData();" >
-		  <option v-for="code in codes" v-bind:value="code.keyword" v-text="code.description" ></option>
+        <select class="form-control" id="codes" onchange="_getUserData();" >
+		  
 		</select>
       </div>
     </div>
@@ -84,11 +85,17 @@
     	 	type:'GET',
     	 	dataType:'json',
     	 	success:function(res){
+    	 		var _now = $('#_now').val();
     	 		if(res!=null&&res.data!=null){
-    	 			 new Vue({
-                         el: '#codes',
-                         data:{codes:res.data}
-                     })
+    	 			var _html = '';
+    	 			for(var i in res.data){
+    	 				if(_now == res.data[i].keyword){
+    	 					_html += '<option value = "'+res.data[i].keyword+'" selected="selected" >'+res.data[i].description+'</option>';
+    	 				}else{
+    	 					_html += '<option value = "'+res.data[i].keyword+'"  >'+res.data[i].description+'</option>';
+    	 				}
+    	 			}
+    	 			$('#codes').html(_html);
     	 			getUserData();
     	 		}
     	 	}
@@ -96,6 +103,7 @@
      }
      function getUserData(){
     	 var qrcode = $('#codes').val();
+    	 ress.data = [];
     	 $.ajax({
              url:'/admin/getAllUserList.html?qrcode='+qrcode,
              type:'GET',
@@ -108,15 +116,19 @@
              				ress.data.push(res.data[i]);
              			}
              		}
-             		console.log(ress)
-             		 new Vue({
-                         el: '#users',
-                         data:{users:ress.data}
-                     })
-             		$('#qrcodeNum').html('<font style="color:red;">'+res.size+'</font>');
              	}
+             	console.log(ress)
+        		 new Vue({
+                    el: '#users',
+                    data:{users:ress.data}
+                })
+        		$('#qrcodeNum').html('<font style="color:red;">'+res.size+'</font>');
              }
          })
+     }
+     function _getUserData(){
+    	 var qrcode = $('#codes').val();
+    	 location.href = '/adminIndex.html?_now='+qrcode;
      }
  </script>
 </body>

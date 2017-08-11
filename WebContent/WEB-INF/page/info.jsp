@@ -196,9 +196,9 @@
  <!--    <div class="ID-col"></div> -->
     <div class="ID-list">
         <div class="ID-col ID-col-three">
-            <p class="left"><b>*</b><span>姓名</span></p>
+            <p class="left"><b>*</b><span>昵称</span></p>
             <div class="right">
-                <input type="text" id="realName" placeholder="请输入姓名"/>
+                <input type="text" id="realName" placeholder="昵称"/>
             </div>
         </div>
         <div class="ID-col ID-col-three">
