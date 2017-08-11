@@ -63,9 +63,9 @@
 	<p  id="_p" >魅力排行</p>
 	<div class="love-list">
 		<table class="_table" >
-			<tr  v-for="model in items" style="border-bottom: 1px solid gray;" >
+			<tr  v-for="model in items" style="border-bottom: 1px solid gray;" onclick="gogo1('{{model.id}}','${userId}')" >
 				<td width="20%;" style="text-align: left;" >
-					<img style="width: 40px;height:53px;border-radius:8px;border: 3px solid gray;border-color:gray; " v-bind:src="model.pic1" />
+					<img style="width: 40px;height:40px;border-radius:40px;border: 3px solid gray;border-color:gray;margin-top: 10px; " v-bind:src="model.pic1" />
 				</td>
 				<td width="55%" style="text-align: left;font-size: 16px;"><b style="margin-top: -10px;" v-text="model.realName" ></b></td>
 				<td width="20%" style="text-align: center;" >
@@ -153,6 +153,9 @@
 			})
 
 		})
+		function gogo1(userId,id){
+			location.href = '/person.html?id='+id+'&userId='+userId;
+		}
 	</script>
 </body>
 </html>
