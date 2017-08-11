@@ -159,8 +159,7 @@ public class UserConnController{
 	 */
 	@RequestMapping(value = "/insertConn")
 	public void insertUserConn(HttpServletRequest request,HttpServletResponse response) throws Exception{
-		data = new HashMap<String,Object>();
-		data.put("code","0");
+		System.out.println("userId="+request.getParameter("userId"));
 		Integer userId = Integer.valueOf(request.getParameter("userId"));
 		Integer likeUserId = Integer.valueOf(request.getParameter("likeUserId"));
 		UserA user = userAService.findById(userId);
@@ -195,7 +194,8 @@ public class UserConnController{
 			userConnAService.insert(userConn);
 		}
 		
-		
+		data = new HashMap<String,Object>();
+		data.put("code","0");
 		data.put("status","success");
 		
 		HttpWebIOHelper._printWebJson(data, response);

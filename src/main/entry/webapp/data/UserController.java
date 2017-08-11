@@ -116,7 +116,7 @@ public class UserController {
 		Integer id = Integer.valueOf(request.getParameter("id"));
 		UserA nowUser = userAService.findById(id);
 		String hql2 = " FROM  UserConnA WHERE first = " + id + " or (likeUser.id = " + id
-				+ " and ((status = 1) or (status = 4) ) )  ";
+				+ " and status!=0  and status !=3 )  ";
 		List<UserConnA> list2 = userConnAService.getByHql(hql2);
 		ArrayList<Integer> ids = new ArrayList<Integer>();
 		String sex = "男";
@@ -145,6 +145,7 @@ public class UserController {
 		}
 		String hql = " FROM UserA WHERE id not in(" + idss + ") and sex = '" + sex
 				+ "' and status =1 AND addTime>'2015-05-13' ";
+		System.out.println(hql);
 		List<UserA> list = userAService.getByHql(hql);
 		List<UserA> list3 = new ArrayList<UserA>();
 		if (list != null && list.size() > 20) {
