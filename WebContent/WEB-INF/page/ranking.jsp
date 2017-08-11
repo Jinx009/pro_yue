@@ -65,10 +65,9 @@
 		<table class="_table" >
 			<tr  v-for="model in items" style="border-bottom: 1px solid gray;" >
 				<td width="20%;" style="text-align: left;" >
-					<img style="width: 40px;height:40px;border-radius:40px;border: 3px solid gray;border-color:gray; " v-bind:src="model.pic1" />
-					<div style="height: 10px;"></div>
+					<img style="width: 40px;height:53px;border-radius:8px;border: 3px solid gray;border-color:gray; " v-bind:src="model.pic1" />
 				</td>
-				<td width="55%" style="text-align: left;font-size: 16px;"><b  v-text="model.realName" ></b></td>
+				<td width="55%" style="text-align: left;font-size: 16px;"><b style="margin-top: -10px;" v-text="model.realName" ></b></td>
 				<td width="20%" style="text-align: center;" >
 					<div><img alt="" src="/themes/img/copy.png" width="25px;" ></div>
 					<div><font style="color: red;"  v-text="model.starNum" ></font>人喜欢TA</div>
