@@ -22,60 +22,7 @@
      	height: 100%;
      }
      </style>
-    <script>
-    $(function(){
-    	var menuStatus = 1;
-        $('.menu-btn').on('click',function(){
-            toggleMenu();
-        });
-        function toggleMenu(){
-            if(1==menuStatus){
-                $('.menu').show();
-                menuStatus = 2;
-            }else{
-                $('.menu').hide();
-                menuStatus = 1;
-            }
-        }
-    	var userId = $('#userId').val();
-    	var id = $('#id').val();
-    	var status = $('#status').val();
-    	 $.ajax({
-    		url:'/data/user/byId.html?id='+userId,
-    		type:'GET',
-    		dataType:'JSON',
-    		success:function(res){
-    			if(res!=null&&res.data!=null){
-    				res.data.imgList = new Array();
-    				res.data.imgList.push('/themes/data/'+res.data.pic1);
-    				if(res.data.pic2!='null'){
-    					res.data.imgList.push('/themes/data/'+res.data.pic2);
-    				}
-    				if(res.data.pic3!='null'){
-    					res.data.imgList.push('/themes/data/'+res.data.pic3);
-    				}
-    				if(status==null||status==''){
-    					status = 2;
-    				}
-    				res.data.xStatus = status;
-    				if(res.data.tag!=null&&res.data.tag!=''){
-    					var tags = res.data.tag.split('，');
-    					if(tags!=null&&tags.length>0){
-    						res.data.tag = '';
-    						for(var i = 0;i<tags.length;i++){
-    							res.data.tag += '<span>'+tags[i]+'</span>';
-    						}
-    					}
-    				}
-    			}
-    			new Vue({
-   				  el: 'body',
-   				  data:{model:res.data}
-    			})
-    		}
-    	}) 
-    })
-    </script>
+
 </head>
 <body>
 	<input type="hidden" id="id" value="${id }" >
@@ -158,18 +105,68 @@
 	    </ul>
 	</nav>
 	</div>
-	<script type="text/javascript">
-		$(function(){
-			var mySwiper = new Swiper('.swiper-container', {
-				  loop: true, //循环播放
-				  autoplay: 5000,
-				  lazyLoading: true, //延迟加载图片
-				  lazyLoadingInPrevNext: true, //延迟加载当前图片之前和之后一张图片
-				  lazyLoadingOnTransitionStart: true, //过渡一开始就加载
-				  pagination: '.swiper-pagination', //导航分页
-				  paginationClickable: true //导航点击切换
-			});
-		})
-	</script>
+	    <script>
+    $(function(){
+    	var menuStatus = 1;
+        $('.menu-btn').on('click',function(){
+            toggleMenu();
+        });
+        function toggleMenu(){
+            if(1==menuStatus){
+                $('.menu').show();
+                menuStatus = 2;
+            }else{
+                $('.menu').hide();
+                menuStatus = 1;
+            }
+        }
+    	var userId = $('#userId').val();
+    	var id = $('#id').val();
+    	var status = $('#status').val();
+    	 $.ajax({
+    		url:'/data/user/byId.html?id='+userId,
+    		type:'GET',
+    		dataType:'JSON',
+    		success:function(res){
+    			if(res!=null&&res.data!=null){
+    				res.data.imgList = new Array();
+    				res.data.imgList.push('/themes/data/'+res.data.pic1);
+    				if(res.data.pic2!='null'){
+    					res.data.imgList.push('/themes/data/'+res.data.pic2);
+    				}
+    				if(res.data.pic3!='null'){
+    					res.data.imgList.push('/themes/data/'+res.data.pic3);
+    				}
+    				if(status==null||status==''){
+    					status = 2;
+    				}
+    				res.data.xStatus = status;
+    				if(res.data.tag!=null&&res.data.tag!=''){
+    					var tags = res.data.tag.split('，');
+    					if(tags!=null&&tags.length>0){
+    						res.data.tag = '';
+    						for(var i = 0;i<tags.length;i++){
+    							res.data.tag += '<span>'+tags[i]+'</span>';
+    						}
+    					}
+    				}
+    			}
+    			new Vue({
+   				  el: 'body',
+   				  data:{model:res.data}
+    			})
+    			var mySwiper = new Swiper('.swiper-container', {
+  				  loop: true, //循环播放
+  				  autoplay: 5000,
+  				  lazyLoading: true, //延迟加载图片
+  				  lazyLoadingInPrevNext: true, //延迟加载当前图片之前和之后一张图片
+  				  lazyLoadingOnTransitionStart: true, //过渡一开始就加载
+  				  pagination: '.swiper-pagination', //导航分页
+  				  paginationClickable: true //导航点击切换
+  			});
+    		}
+    	}) 
+    })
+    </script>
 </body>
 </html>

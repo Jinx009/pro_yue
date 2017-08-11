@@ -52,10 +52,22 @@ public class UserController {
 	@RequestMapping(value = "/front/getStars")
 	public void getStars(HttpServletResponse response, HttpServletRequest request) throws IOException {
 		List<UserA> list = userAService.getByHql(" FROM UserA WHERE realName != ''AND realName is not null ORDER BY star_num DESC ");
-
+		int _nv = 0;
+		int _nan = 0;
+		List<UserA> res = new ArrayList<UserA>();
+		for(UserA userA:list){
+			if(_nan<10&&userA.getSex().equals("男")){
+				res.add(userA);
+				_nan++;
+			}
+			if(_nv<10&&userA.getSex().equals("女")){
+				res.add(userA);
+				_nv++;
+			}
+		}
 		data = new HashMap<String, Object>();
 		data.put(ConstantUtil.CODE, ConstantUtil.CODE_RIGHT);
-		data.put(ConstantUtil.DATA, list);
+		data.put(ConstantUtil.DATA, res);
 
 		HttpWebIOHelper._printWebJson(data, response);
 	}

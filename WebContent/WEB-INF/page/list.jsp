@@ -40,7 +40,6 @@
     		success:function(res){
     		    if(res.data!=null&&res.data.length>0){
     		    	for(var i = 0;i<res.data.length;i++){
-    		    		alert(res.data[i].userId);
     		    		if(res.data[i].status==0){
     		    			res.data[i].value = '我心仪的';
     		    		}
