@@ -60,6 +60,7 @@
     		    			res.data[i].pic = '/themes/data/'+res.data[i].user.pic1;
     		    		}	
     		    	}
+    		    	console.log(res.data);
     		    	new Vue({
   	   				  el: 'body',
   	   				  data:{items:res.data}
@@ -92,7 +93,7 @@
     </header>
     <div class="love-list"  >
         <div class="love-list-col" v-for="model in items" onclick="javascript:location.href='/person.html?userId={{model.userId}}&id={{model.xx}}';"  >
-            <div class="love-head-icon" ><img v-bind:src="<%=request.getContextPath() %>/model.pic" /></div>
+            <div class="love-head-icon" ><img v-bind:src="model.pic" /></div>
             <div class="love-right"  >
                 <p class="top" v-text="model.realName" ></p>
                 <p class="age"><b v-text="model.age+'岁'" ></b>&nbsp;&nbsp;&nbsp;<font v-text="model.value" ></font></p>
