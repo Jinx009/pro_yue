@@ -121,6 +121,7 @@
         }
         
         function sendData(){
+        	hideAlert();
         	var thisAge = parseInt($('#age').val());
         	if($('#age').val()==null||$('#age').val()==''){
         		alert('年龄未填写！');
@@ -181,6 +182,11 @@
         }
         function hideAlert(){
         	$('#alertDiv').hide();
+        	$('#noGoDiv1').hide();
+        }
+        function showAlert1(id){
+        	hideAlert();
+        	$('#'+id).css('display','-webkit-flex');
         }
         function goPro(){
         	var userId =$('#userId').val();
@@ -325,7 +331,7 @@
     <div style="margin-left: 10px;margin-top: 20px;" >
     	<input type="checkbox" onclick="return  false;" style="-webkit-appearance: none;" checked="checked" >&nbsp;&nbsp;<span onclick="goPro();" style="font-size: 14px;" >阅读并同意《免责声明》</span>
     </div>
-    <div class="footer-btn" style="border-top: 0 solid white;" ><a href="javascript:sendData();" class="btn">立即提交</a></div>
+    <div class="footer-btn" style="border-top: 0 solid white;" ><a href="javascript:showAlert1('noGoDiv1');" class="btn">立即提交</a></div>
     <div class="g-dialog-contianer" id="alertDiv" >
         <div class="dialog-window ">
             <div class="dialog-header"></div>
@@ -335,6 +341,19 @@
             <div class="dialog-content" style="padding: 0;" >以免造成照片变形.</div>
             <div class="dialog-footer"></div>
             <div class="dialog-close" onclick="hideAlert();" ></div>
+        </div>
+    </div>
+        <div class="g-dialog-contianer"  id="noGoDiv1" style="display: none;" >
+        <div class="dialog-window ">
+            <div class="dialog-header"></div>
+            <div class="dialog-content" style="padding: 0;" >请确认您所填的信息正确，</div>
+            <div class="dialog-content" style="padding: 0;" >点击确认后无法更改。</div>
+            <div class="dialog-footer">
+               <div class="dialog-footer">
+                <a class="green dogreen" style="padding:0.15rem 1.8em;" onclick="sendData();">确认</a>&nbsp;&nbsp;&nbsp;
+				<a class="green dogreen" style="padding:0.15rem 1.8em;" onclick="hideAlert();">取消</a>
+            </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript">

@@ -52,6 +52,7 @@
         <tr>
             <th>图片</th>
             <th>姓名</th>
+            <th>手机号码</th>
             <th>性别</th>
             <th>年龄</th>
             <th>学历</th>
@@ -63,6 +64,7 @@
                 <img v-bind:src="model.pic1" height="38px" >
             </td>
             <td v-text="model.realName" ></td>
+            <td v-text="model.mobilePhone" ></td>
             <td v-text="model.sex" ></td>
             <td v-text="model.age" ></td>
             <td v-text="model.edu" ></td>
