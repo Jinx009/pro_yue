@@ -28,6 +28,10 @@
     <script type="text/javascript" src="/themes/js/common.js"></script>
     <!-- <script src='/themes/js/snowfall.min.js'></script> -->
     <script type='text/javascript'>  
+    	function gogogo1(){
+    		$('#pic2').show();
+    		$('#pic1').hide();
+    	}
     	function gogogo(){
     		var name = $('#name').val();
     		var pic = $('#pic').val();
@@ -49,6 +53,7 @@
 	<input type="hidden" id="pic" value="${pic }" >
 	<div class="heart"></div>
 	<div class="stars"></div>
-	<img alt="" src="<%=request.getContextPath() %>/themes/img/index_1.jpeg" onclick="gogogo();" class="test" >
+	<img alt="" src="/themes/img/index_11.jpeg" onclick="gogogo1();" class="test"  id="pic1"  >
+	<img alt="" src="/themes/img/index_22.jpeg" style="display: none;" onclick="gogogo();" id="pic2" class="test" >
    </body>
 </html>
