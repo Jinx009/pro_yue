@@ -127,7 +127,7 @@
         		alert('年龄未填写！');
         	}else if($('#mobilePhone').val()==null||$('#mobilePhone').val()==''){
         		alert('手机号未填写！');
-        	}else if(thisAge<18||thisAge>40){
+        	}else if(thisAge<22||thisAge>50){
         		alert('您填写的年龄超出活动要求，请重新填写!');
         	}else if($('#likes').val()==null&&$('#likes').val()==''){
         		alert('兴趣爱好不能为空！');
@@ -237,7 +237,7 @@
         <div class="ID-col ID-col-three">
             <p class="left"><b>*</b><span>年龄</span></p>
             <div class="right">
-                <input type="tel" id="age" placeholder="请输入您的年龄"/>
+                <input type="tel" id="age" placeholder="请输入您的年龄(22-50)"/>
             </div>
         </div>
         <div class="ID-col ID-col-one">
