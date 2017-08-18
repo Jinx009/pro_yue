@@ -27,7 +27,7 @@
     <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="/themes/js/common.js"></script>
     <!-- <script src='/themes/js/snowfall.min.js'></script> -->
-    <script type='text/javascript'>  
+    <script type='text/javascript'>
     	function gogogo1(){
     		$('#pic2').show();
     		$('#pic1').hide();
@@ -53,8 +53,8 @@
 	<input type="hidden" id="pic" value="${pic }" >
 	<div class="heart"></div>
 	<div class="stars"></div>
-	
-	<img alt="" src="/themes/img/index_33.jpeg" onclick="gogogo();" class="test"  id="pic1"  >
+
+	<img alt="" src="/themes/img/index_44.jpeg" onclick="gogogo();" class="test"  id="pic1"  >
 <!-- 	<img alt="" src="/themes/img/index_22.jpeg" style="display: none;" onclick="gogogo();" id="pic2" class="test" > -->
    </body>
 </html>

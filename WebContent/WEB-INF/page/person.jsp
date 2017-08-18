@@ -59,7 +59,7 @@
 			<p class="left">户籍：</p>
 			<p class="right" v-text="model.address" ></p>
 		</div>
-		<div class="list-col inform-col">
+		<div class="list-col inform-col" style="display: none;">
 			<p class="left">职业：</p>
 			<p class="right" v-text="model.jobInfo" ></p>
 		</div>

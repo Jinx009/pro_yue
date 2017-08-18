@@ -137,8 +137,8 @@
         		alert('职业未填写！');
         	}else if($('#wechatAccount').val()==null&&$('#wechatAccount').val()==''){
         		alert('微信号未填写！');
-        	}else if($('#danwei').val()==null&&$('#danwei').val()==''){
-        		alert('单位未填写！');
+        	/* }else if($('#danwei').val()==null&&$('#danwei').val()==''){
+        		alert('单位未填写！'); */
         	}else if(imgArray[0].restId==null&&imgArray[1].restId==null&&imgArray[2].restId==null){
         		alert('您必须上传至少一张图片！');
         	}else{
@@ -252,7 +252,7 @@
                 <input type="text" id="job" placeholder="请输入您的职业"/>
             </div>
         </div>
-        <div class="ID-col ID-col-three">
+        <div class="ID-col ID-col-three" style="display: none;">
             <p class="left"><b>*</b><span>单位</span></p>
             <div class="right">
                 <input type="text" id="danwei" placeholder="请输入您的单位"/>
