@@ -160,8 +160,8 @@ public class UserController {
 		System.out.println(hql);
 		List<UserA> list = userAService.getByHql(hql);
 		List<UserA> list3 = new ArrayList<UserA>();
-		if (list != null && list.size() > 20) {
-			for (int i = 0; i < 20; i++) {
+		if (list != null && list.size() > 1000) {
+			for (int i = 0; i < 1000; i++) {
 				list3.add(list.get(i));
 			}
 		} else {

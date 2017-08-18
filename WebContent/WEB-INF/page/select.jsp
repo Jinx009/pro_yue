@@ -208,7 +208,8 @@
 	}
 	function showStatus(){
 		if(index===ress.data.length){
-			showDiv('noDiv');
+		/* 	showDiv('noDiv'); */
+		location.reload();
 		}
 	}
 	function showDiv(id){
