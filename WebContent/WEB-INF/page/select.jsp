@@ -14,7 +14,79 @@
     <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
     <script src="/themes/js/vue.min.js" ></script>
      <link rel="stylesheet" type="text/css" href="/themes/css/buildDate.css">
+      <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script>
+    wx.config({
+        debug: false,
+        appId: '${appId}',
+        timestamp: ${timestamp},
+        nonceStr: '${nonceStr}',
+        signature: '${signature}',
+        jsApiList: [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'translateVoice',
+            'startRecord',
+            'stopRecord',
+            'onRecordEnd',
+            'playVoice',
+            'pauseVoice',
+            'stopVoice',
+            'uploadVoice',
+            'downloadVoice',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'closeWindow',
+            'scanQRCode',
+            'chooseWXPay',
+            'openProductSpecificView',
+            'addCard',
+            'chooseCard',
+            'openCard'
+        ]
+    });
+    wx.ready(function () {
+        wx.onMenuShareAppMessage({
+            title: '白领单身节！',
+            desc: '白领单身节！',
+            link:  '${_url}',
+            imgUrl: 'http://meet.globalrave.cn/themes/img/index_44.jpeg',
+            success: function () {
+                 alert('已转发');
+            },
+            cancel: function () {
+                 alert('已取消');
+            },
+     });
+      wx.onMenuShareTimeline({
+            title: '白领单身节！',
+            link: '${_url}',
+            imgUrl: 'http://meet.globalrave.cn/themes/img/index_44.jpeg',
+            success: function () {
+                 alert("分享成功!");
+            },
+            cancel: function () {
+                alert('已取消');
+            }
+       });
+    });
+    wx.error(function(res){
+        alert(res.errMsg);
+    });
     var ress = {};var index = 0,thisShowStatus = false;;
     $(function(){
     	var userId = $('#userId').val();

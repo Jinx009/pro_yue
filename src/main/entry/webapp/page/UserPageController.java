@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import common.wechat.WechatData;
 import common.wechat.WechatJSSign;
 import common.wechat.WechatUtil;
+import database.models.UserA;
 import database.models.WechatCache;
+import service.basicFunctions.UserAService;
 import service.basicFunctions.WechatCacheService;
 
 @Controller
@@ -23,6 +25,8 @@ public class UserPageController {
 
 	@Autowired
 	private WechatCacheService wechatCacheService;
+	@Autowired
+	private UserAService userAService;
 	
 	/**
 	 * 进入身份认证页面
@@ -83,9 +87,36 @@ public class UserPageController {
 	 * @param request
 	 * @param response
 	 * @return
+	 * @throws IOException 
+	 * @throws ClientProtocolException 
 	 */
 	@RequestMapping(value = "/select")
-	public String select(HttpServletRequest request,HttpServletResponse response){
+	public String select(HttpServletRequest request,HttpServletResponse response) throws ClientProtocolException, IOException{
+		// js api处理
+		String url = request.getRequestURL().toString();
+		String queryString = request.getQueryString();
+
+		if (null != queryString && !"".equals(queryString)) {
+			url = url + "?" + queryString;
+		}
+
+		String appId = WechatData.APP_ID;
+		String appSecret = WechatData.APP_SECRET;
+		WechatCache wechatCache = wechatCacheService.getByAppId(appId,"JsApi");
+		String jsapi_ticket = this.checkWechatCache(appId,appSecret, wechatCache);
+		
+		Map<String, String> ret = WechatJSSign.createSign(jsapi_ticket,url, appId, appSecret);
+		Integer reId = (Integer) request.getSession().getAttribute("reId");
+		if(reId!=0){
+			UserA userA = userAService.findById(reId);
+			request.setAttribute("_url",  WechatData.OAUTH_URL_ONE+WechatData.OAUTH_URL_TWO+"/index.html?qKey="+userA.getQrcode()+"%26reId="+reId+WechatData.OAUTH_URL_THREE);
+		}else{
+			request.setAttribute("_url",  WechatData.OAUTH_URL_ONE+WechatData.OAUTH_URL_TWO+"/index.html?reId="+reId+WechatData.OAUTH_URL_THREE);
+		}
+		request.setAttribute("appId", appId);
+		request.setAttribute("timestamp", ret.get("timestamp").toString());
+		request.setAttribute("nonceStr", ret.get("nonceStr").toString());
+		request.setAttribute("signature", ret.get("signature").toString());
 		String userId = request.getParameter("userId");
 		request.setAttribute("userId",userId);
 		return "/select";

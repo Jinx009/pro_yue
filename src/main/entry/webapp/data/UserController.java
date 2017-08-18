@@ -208,7 +208,19 @@ public class UserController {
 		user.setPic3(request.getParameter("pic3"));
 		user.setMobilePhone(request.getParameter("mobilePhone"));
 		user.setStatus(1);
-
+		
+		Integer reId = (Integer) request.getSession().getAttribute("reId");
+		if(reId!=0){
+			UserA reUser = userAService.findById(reId);
+			user.setReName(reUser.getRealName());
+			user.setReId(reId);
+			if(reUser.getBeReNum()==null){
+				reUser.setBeReNum(1);
+			}else{
+				reUser.setBeReNum(reUser.getBeReNum()+1);
+			}
+			userAService.update(reUser);
+		}
 		userAService.update(user);
 		request.getSession().setAttribute("name", user.getRealName());
 		request.getSession().setAttribute("pic", user.getPic1());

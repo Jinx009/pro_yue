@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import common.helper.StringUtil;
 import common.wechat.WechatData;
 import common.wechat.WechatUtil;
 import database.models.UserA;
@@ -37,6 +38,11 @@ public class IndexController {
 	@RequestMapping(value = "/index")
 	public String index(HttpServletRequest request,HttpServletResponse response) throws ClientProtocolException, IOException{
 		String code = request.getParameter("code");
+		String id = request.getParameter("id");
+		Integer reId = 0;
+		if(StringUtil.isNotBlank(id)){
+			reId = Integer.valueOf(id);
+		}
 		String qrcode = request.getParameter("qKey");
 		System.out.println("code:"+code+"----"+qrcode);
 		Integer userId = 0;
@@ -71,6 +77,7 @@ public class IndexController {
 				userId = user.getId();
 			}
 		}
+		request.getSession().setAttribute("reId",reId);
 		request.setAttribute("userId",userId);
 		request.setAttribute("status",status);
 //		User user2 = userService.findById(3);
