@@ -13,12 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-import service.basicFunctions.QRCodeService;
 import service.basicFunctions.UserService;
 
 import common.wechat.WechatData;
 import common.wechat.WechatUtil;
-import database.models.QRCode;
 import database.models.User;
 
 @Controller
@@ -26,8 +24,6 @@ public class PageController {
 	
 	@Autowired
 	private UserService userService;
-	@Autowired
-	private QRCodeService QRCodeService;
 
 	/**
 	 * 中转页
@@ -36,8 +32,11 @@ public class PageController {
 	@RequestMapping(value = "/q")
 	public String q(HttpServletRequest request){
 		String key = request.getParameter("key");
-		QRCode qrCode = QRCodeService.findByKey(key);
-		String realUrl = qrCode.getRealUrl();
+		String reId = request.getParameter("reId");
+		if(reId==null){
+			reId = "0";
+		}
+		String realUrl = WechatData.OAUTH_URL_ONE+WechatData.OAUTH_URL_TWO+"/index.html?qKey="+key+"%26id="+reId+WechatData.OAUTH_URL_THREE;
 		return "redirect:"+realUrl;
 	}
 	

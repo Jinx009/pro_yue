@@ -106,19 +106,16 @@ public class UserPageController {
 		String jsapi_ticket = this.checkWechatCache(appId,appSecret, wechatCache);
 		
 		Map<String, String> ret = WechatJSSign.createSign(jsapi_ticket,url, appId, appSecret);
-		Integer reId = (Integer) request.getSession().getAttribute("reId");
-		if(reId!=0){
-			UserA userA = userAService.findById(reId);
-			request.setAttribute("_url",  WechatData.OAUTH_URL_ONE+WechatData.OAUTH_URL_TWO+"/index.html?qKey="+userA.getQrcode()+"%26reId="+reId+WechatData.OAUTH_URL_THREE);
-		}else{
-			request.setAttribute("_url",  WechatData.OAUTH_URL_ONE+WechatData.OAUTH_URL_TWO+"/index.html?reId="+reId+WechatData.OAUTH_URL_THREE);
-		}
+		String userId = request.getParameter("userId");
+		Integer _userId = Integer.valueOf(userId);
+		UserA userA = userAService.findById(_userId);
+		request.setAttribute("userId",userId);
+		request.setAttribute("_url",  WechatData.OAUTH_URL_TWO+"/q.html?key="+userA.getQrcode()+"&reId="+userId);
 		request.setAttribute("appId", appId);
 		request.setAttribute("timestamp", ret.get("timestamp").toString());
 		request.setAttribute("nonceStr", ret.get("nonceStr").toString());
 		request.setAttribute("signature", ret.get("signature").toString());
-		String userId = request.getParameter("userId");
-		request.setAttribute("userId",userId);
+		
 		return "/select";
 	}
 	

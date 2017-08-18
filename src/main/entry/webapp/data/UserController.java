@@ -210,8 +210,9 @@ public class UserController {
 		user.setStatus(1);
 		
 		Integer reId = (Integer) request.getSession().getAttribute("reId");
-		if(reId!=0){
+		if(reId!=null&&reId!=0){
 			UserA reUser = userAService.findById(reId);
+			user.setQrcode(reUser.getQrcode());
 			user.setReName(reUser.getRealName());
 			user.setReId(reId);
 			if(reUser.getBeReNum()==null){

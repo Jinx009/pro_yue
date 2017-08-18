@@ -16,6 +16,7 @@
      <link rel="stylesheet" type="text/css" href="/themes/css/buildDate.css">
       <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script>
+    var ress = {};var index = 0,thisShowStatus = false;
     wx.config({
         debug: false,
         appId: '${appId}',
@@ -25,69 +26,38 @@
         jsApiList: [
             'checkJsApi',
             'onMenuShareTimeline',
-            'onMenuShareAppMessage',
-            'onMenuShareQQ',
-            'onMenuShareWeibo',
-            'hideMenuItems',
-            'showMenuItems',
-            'hideAllNonBaseMenuItem',
-            'showAllNonBaseMenuItem',
-            'translateVoice',
-            'startRecord',
-            'stopRecord',
-            'onRecordEnd',
-            'playVoice',
-            'pauseVoice',
-            'stopVoice',
-            'uploadVoice',
-            'downloadVoice',
-            'chooseImage',
-            'previewImage',
-            'uploadImage',
-            'downloadImage',
-            'getNetworkType',
-            'openLocation',
-            'getLocation',
-            'hideOptionMenu',
-            'showOptionMenu',
-            'closeWindow',
-            'scanQRCode',
-            'chooseWXPay',
-            'openProductSpecificView',
-            'addCard',
-            'chooseCard',
-            'openCard'
+            'onMenuShareAppMessage'
         ]
     });
     wx.ready(function () {
-        wx.onMenuShareAppMessage({
-            title: '白领单身节！',
-            desc: '白领单身节！',
-            link:  '${_url}',
-            imgUrl: 'http://meet.globalrave.cn/themes/img/index_44.jpeg',
-            success: function () {
-                 alert('已转发');
-            },
-            cancel: function () {
-                 alert('已取消');
-            },
-     });
-      wx.onMenuShareTimeline({
-            title: '白领单身节！',
-            link: '${_url}',
-            imgUrl: 'http://meet.globalrave.cn/themes/img/index_44.jpeg',
-            success: function () {
-                 alert("分享成功!");
-            },
-            cancel: function () {
-                alert('已取消');
-            }
-       });
+    	 wx.onMenuShareAppMessage({
+    	        title: '白领单身节！',
+    	        desc: '白领单身节！',
+    	        link:  '${_url}',
+    	        imgUrl: 'http://meet.globalrave.cn/themes/img/index_44.jpeg',
+    	        success: function () {
+    	             alert('已转发');
+    	        },
+    	        cancel: function () {
+    	             alert('已取消');
+    	        },
+    	 });
+    	  wx.onMenuShareTimeline({
+    	        title: '白领单身节！',
+    	        link: '${_url}',
+    	        imgUrl: 'http://meet.globalrave.cn/themes/img/index_44.jpeg',
+    	        success: function () {
+    	             alert("分享成功!");
+    	        },
+    	        cancel: function () {
+    	            alert('已取消');
+    	        }
+    	   });
+    	    wx.error(function(res){
+    	        alert(res.errMsg);
+    	    });
     });
-    wx.error(function(res){
-        alert(res.errMsg);
-    });
-    var ress = {};var index = 0,thisShowStatus = false;;
+   
     $(function(){
     	var userId = $('#userId').val();
     	var newStatus = getStorage("newStatus");
@@ -280,8 +250,8 @@
 	}
 	function showStatus(){
 		if(index===ress.data.length){
-		/* 	showDiv('noDiv'); */
-		location.reload();
+		showDiv('noDiv'); 
+	/* 	location.reload(); */
 		}
 	}
 	function showDiv(id){

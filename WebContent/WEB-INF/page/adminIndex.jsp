@@ -56,6 +56,8 @@
             <th>性别</th>
             <th>年龄</th>
             <th>学历</th>
+            <th>推荐人数</th>
+            <th>被推荐者姓名</th>
         </tr>
     </thead>
     <tbody id="users" >
@@ -68,6 +70,8 @@
             <td v-text="model.sex" ></td>
             <td v-text="model.age" ></td>
             <td v-text="model.edu" ></td>
+            <td v-text="model.beReNum" ></td>
+            <td v-text="model.reName" ></td>
         </tr>
     </tbody>
 </table>
