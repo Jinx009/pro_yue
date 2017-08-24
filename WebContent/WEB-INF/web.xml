@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd" id="WebApp_ID" version="3.0">
+  <context-param>
+    <param-name>webAppRootKey</param-name>
+    <param-value>yue.root</param-value>
+</context-param>
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -96,7 +100,7 @@
     <servlet-name>nbBaseServlet</servlet-name>
     <url-pattern>*.api</url-pattern>
   </servlet-mapping>
-  <display-name>nbBase</display-name>
+  <display-name>nbBase_1</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
