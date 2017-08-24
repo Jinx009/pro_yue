@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="javascript:location.reload();">用户列表</a></li>
-                <li><a href="/adminThree.html">二维码管理</a></li>
+                <li><a href="/yue/adminThree.html">二维码管理</a></li>
             </ul>
         </div>
     </div>
@@ -83,7 +83,7 @@
      })
      function getqrcode(){
     	 $.ajax({
-    		url:'/admin/QRCodeList.html',
+    		url:'/yue/admin/QRCodeList.html',
     	 	type:'GET',
     	 	dataType:'json',
     	 	success:function(res){
@@ -107,7 +107,7 @@
     	 var qrcode = $('#codes').val();
     	 ress.data = [];
     	 $.ajax({
-             url:'/admin/getAllUserList.html?qrcode='+qrcode,
+             url:'/yue/admin/getAllUserList.html?qrcode='+qrcode,
              type:'GET',
              dataType:'JSON',
              success:function(res){
@@ -130,7 +130,7 @@
      }
      function _getUserData(){
     	 var qrcode = $('#codes').val();
-    	 location.href = '/adminIndex.html?_now='+qrcode;
+    	 location.href = '/yue/adminIndex.html?_now='+qrcode;
      }
  </script>
 </body>

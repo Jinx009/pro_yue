@@ -11,7 +11,7 @@
     <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
     <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/Swiper/3.1.7/css/swiper.min.css">
-     <script src="/themes/js/common.js" ></script>
+     <script src="/yue/themes/js/common.js" ></script>
     <script type="text/javascript">
     $(function(){
     	

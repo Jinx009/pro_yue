@@ -9,14 +9,14 @@
     <meta content="telephone=no,email=no" name="format-detection">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <title>个人页</title>
-    <script src="/themes/js/jquery.js" ></script>
-    <script src="/themes/js/common.js" ></script>
+    <script src="/yue/themes/js/jquery.js" ></script>
+    <script src="/yue/themes/js/common.js" ></script>
     <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
     <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/Swiper/3.1.7/css/swiper.min.css">
     <script type="text/javascript" src="http://cdn.bootcss.com/Swiper/3.1.7/js/swiper.jquery.min.js"></script>
-    <script src="/themes/js/common.js" ></script>
-    <script src="/themes/js/vue.min.js" ></script>
-     <link rel="stylesheet" type="text/css" href="/themes/css/buildDate.css">
+    <script src="/yue/themes/js/common.js" ></script>
+    <script src="/yue/themes/js/vue.min.js" ></script>
+     <link rel="stylesheet" type="text/css" href="/yue/themes/css/buildDate.css">
      <style type="text/css">
      .swiper-container{
      	height: 100%;
@@ -29,9 +29,9 @@
 	<input type="hidden" id="status" value="${statusA }" >
 	<input type="hidden" id="userId" value="${userId }" >
 	<header>
-       <a href="javascript:;" class="menu-btn"><img src="/themes/img/321.png"/></a>
+       <a href="javascript:;" class="menu-btn"><img src="/yue/themes/img/321.png"/></a>
         <span class="center">个人主页</span>
-         <a href="/select.html?userId=${id }" class="right"><img src="/themes/img/home.png" /></a>
+         <a href="/yue/select.html?userId=${id }" class="right"><img src="/yue/themes/img/home.png" /></a>
     </header>
 
 	<div class="swiper-container">
@@ -45,8 +45,8 @@
 		<div class="list-col">
 			<p class="inform">
 				<span v-text="model.realName" ></span>
-				<img v-if="'男'==model.sex" src="/themes/img/male_icon.png" />
-				<img v-if="'女'==model.sex" src="/themes/img/female_icon.png" />
+				<img v-if="'男'==model.sex" src="/yue/themes/img/male_icon.png" />
+				<img v-if="'女'==model.sex" src="/yue/themes/img/female_icon.png" />
 				<span v-text="model.sex" ></span>
 				<span  class="num">编号</span>
 				<span v-text="model.num" ></span>
@@ -84,20 +84,20 @@
 			<p class="tag" v-html="model.tag" ></p>
 		</div>
 		<div class="person-introduction">
-			<p class="title"><img src="/themes/img/personal_icon.png"/><span>个人简介</span></p>
+			<p class="title"><img src="/yue/themes/img/personal_icon.png"/><span>个人简介</span></p>
 			<p class="text" v-text="model.info" ></p>
 		</div>
 		   <nav class="menu">
     <div class="menu-logo">
-        <img src="/themes/data/${sessionScope.pic}" onclick="javascript:location.href='/person.html?id=${id}&userId=${id }';"/>
+        <img src="/yue/themes/data/${sessionScope.pic}" onclick="javascript:location.href='/yue/person.html?id=${id}&userId=${id }';"/>
         <p>${sessionScope.name}</p>
     </div>
 	     <ul>
-	        <li><a href="javascript:location.href='/ranking.html?userId=${id }';"><img style="height: auto;" src="/themes/img/love_icon.png"/>魅力排行</a></li>
-	        <li><a href="javascript:location.href='/list.html?userId=${id }';"><img style="height: auto;" src="/themes/img/love_icon.png"/>我心仪的</a></li>
-	        <li><a href="javascript:location.href='/listGo.html?userId=${id }';"><img src="/themes/img/123.png"/>互相心仪</a></li>
-	        <li><a href="javascript:location.href='/person.html?userId=${id }&id=${userId }';"><img src="/themes/img/person.png"/>个人主页</a></li>
-	    	<li><a href="javascript:location.href='/select.html?userId=${id }&id=${userId }';"><img src="/themes/img/home.png"/>返回筛选</a></li>
+	        <li><a href="javascript:location.href='/yue/ranking.html?userId=${id }';"><img style="height: auto;" src="/yue/themes/img/love_icon.png"/>魅力排行</a></li>
+	        <li><a href="javascript:location.href='/yue/list.html?userId=${id }';"><img style="height: auto;" src="/yue/themes/img/love_icon.png"/>我心仪的</a></li>
+	        <li><a href="javascript:location.href='/yue/listGo.html?userId=${id }';"><img src="/yue/themes/img/123.png"/>互相心仪</a></li>
+	        <li><a href="javascript:location.href='/yue/person.html?userId=${id }&id=${userId }';"><img src="/yue/themes/img/person.png"/>个人主页</a></li>
+	    	<li><a href="javascript:location.href='/yue/select.html?userId=${id }&id=${userId }';"><img src="/yue/themes/img/home.png"/>返回筛选</a></li>
 	    </ul>
 	</nav>
 	</div>
@@ -120,18 +120,18 @@
     	var id = $('#id').val();
     	var status = $('#status').val();
     	 $.ajax({
-    		url:'/data/user/byId.html?id='+userId,
+    		url:'/yue/data/user/byId.html?id='+userId,
     		type:'GET',
     		dataType:'JSON',
     		success:function(res){
     			if(res!=null&&res.data!=null){
     				res.data.imgList = new Array();
-    				res.data.imgList.push('/themes/data/'+res.data.pic1);
+    				res.data.imgList.push('/yue/themes/data/'+res.data.pic1);
     				if(res.data.pic2!='null'){
-    					res.data.imgList.push('/themes/data/'+res.data.pic2);
+    					res.data.imgList.push('/yue/themes/data/'+res.data.pic2);
     				}
     				if(res.data.pic3!='null'){
-    					res.data.imgList.push('/themes/data/'+res.data.pic3);
+    					res.data.imgList.push('/yue/themes/data/'+res.data.pic3);
     				}
     				if(status==null||status==''){
     					status = 2;

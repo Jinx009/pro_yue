@@ -29,7 +29,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/adminIndex.html">用户列表</a></li>
+                <li><a href="/yue/adminIndex.html">用户列表</a></li>
                 <li  class="active"><a href="javascript:location.reload();">约会列表</a></li>
             </ul>
         </div>
@@ -58,7 +58,7 @@
 <script>
     $(function(){
         $.ajax({
-         url:'/getConnSuccess.html',
+         url:'/yue/getConnSuccess.html',
          type:'GET',
          dataType:'JSON',
          success:function(res){

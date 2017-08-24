@@ -10,14 +10,14 @@
 <meta name="viewport"
 	content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
 <title>魅力排行</title>
-<script src="/themes/js/jquery.js"></script>
-<script src="/themes/js/common.js"></script>
+<script src="/yue/themes/js/jquery.js"></script>
+<script src="/yue/themes/js/common.js"></script>
 <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
 <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/Swiper/3.1.7/css/swiper.min.css">
-<link rel="stylesheet" type="text/css" href="/themes/css/buildDate.css">
+<link rel="stylesheet" type="text/css" href="/yue/themes/css/buildDate.css">
 <script type="text/javascript" src="http://cdn.bootcss.com/Swiper/3.1.7/js/swiper.jquery.min.js"></script>
-<script src="/themes/js/common.js"></script>
-<script src="/themes/js/vue.min.js"></script>
+<script src="/yue/themes/js/common.js"></script>
+<script src="/yue/themes/js/vue.min.js"></script>
 <style type="text/css">
 #_p{
 	width: 100%;
@@ -54,12 +54,12 @@
 	<input type="hidden" id="userId" value="${userId }">
 	<header>
 		<a href="javascript:;" class="menu-btn"><img
-			src="/themes/img/321.png" /></a> <span class="center">魅力排行</span> <a
-			href="/select.html?userId=${userId }" class="right"><img
-			src="/themes/img/home.png" /></a>
+			src="/yue/themes/img/321.png" /></a> <span class="center">魅力排行</span> <a
+			href="/yue/select.html?userId=${userId }" class="right"><img
+			src="/yue/themes/img/home.png" /></a>
 	</header>
-	<img src="/themes/img/tuoyuan.png" id="_bg" >
-	<img src="/themes/img/mofa.png" id="small_img"  >
+	<img src="/yue/themes/img/tuoyuan.png" id="_bg" >
+	<img src="/yue/themes/img/mofa.png" id="small_img"  >
 	<p  id="_p" >魅力排行</p>
 	<div class="love-list">
 		<table class="_table" >
@@ -69,7 +69,7 @@
 				</td>
 				<td width="55%" style="text-align: left;font-size: 16px;"><b style="margin-top: -10px;" v-text="model.realName" ></b></td>
 				<td width="20%" style="text-align: center;" >
-					<div><img alt="" src="/themes/img/copy.png" width="25px;" ></div>
+					<div><img alt="" src="/yue/themes/img/copy.png" width="25px;" ></div>
 					<div><font style="color: red;"  v-text="model.starNum" ></font>人喜欢TA</div>
 				</td>
 				<td width="5%;"></td>
@@ -87,25 +87,25 @@
 		<nav class="menu">
 			<div class="menu-logo">
 				<img src="/themes/data/${sessionScope.pic}"
-					onclick="javascript:location.href='/person.html?id=${userId}&userId=${userId }';" />
+					onclick="javascript:location.href='/yue/person.html?id=${userId}&userId=${userId }';" />
 				<p>${sessionScope.name}</p>
 			</div>
 			<ul>
 				<li><a
-					href="javascript:location.href='/ranking.html?userId=${userId }';"><img
-						style="height: auto;" src="/themes/img/love_icon.png" />魅力排行</a></li>
+					href="javascript:location.href='/yue/ranking.html?userId=${userId }';"><img
+						style="height: auto;" src="/yue/themes/img/love_icon.png" />魅力排行</a></li>
 				<li><a
-					href="javascript:location.href='/list.html?userId=${userId }';"><img
-						style="height: auto;" src="/themes/img/love_icon.png" />我心仪的</a></li>
+					href="javascript:location.href='/yue/list.html?userId=${userId }';"><img
+						style="height: auto;" src="/yue/themes/img/love_icon.png" />我心仪的</a></li>
 				<li><a
-					href="javascript:location.href='/listGo.html?userId=${userId }';"><img
-						src="/themes/img/123.png" />互相心仪</a></li>
+					href="javascript:location.href='/yue/listGo.html?userId=${userId }';"><img
+						src="/yue/themes/img/123.png" />互相心仪</a></li>
 				<li><a
-					href="javascript:location.href='/person.html?userId=${userId }&id=${userId }';"><img
-						src="/themes/img/person.png" />个人主页</a></li>
+					href="javascript:location.href='/yue/person.html?userId=${userId }&id=${userId }';"><img
+						src="/yue/themes/img/person.png" />个人主页</a></li>
 				<li><a
-					href="javascript:location.href='/select.html?userId=${userId }&id=${userId }';"><img
-						src="/themes/img/home.png" />返回筛选</a></li>
+					href="javascript:location.href='/yue/select.html?userId=${userId }&id=${userId }';"><img
+						src="/yue/themes/img/home.png" />返回筛选</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -131,13 +131,13 @@
 			$('.love-list').css('margin-top',(_height+20)+'px');
 			var userId = $('#userId').val();
 			$.ajax({
-				url : '/front/getStars.html',
+				url : '/yue/front/getStars.html',
 				type : 'GET',
 				dataType : 'JSON',
 				success : function(res) {
 					if (res.data != null && res.data.length > 0) {
 						for(var i in res.data){
-							res.data[i].pic1 = '/themes/data/'+res.data[i].pic1;
+							res.data[i].pic1 = '/yue/themes/data/'+res.data[i].pic1;
 							if(res.data[i].starNum==null||res.data[i].starNum==''){
 								res.data[i].starNum = 0;
 							}
@@ -154,7 +154,7 @@
 
 		})
 		function gogo1(userId,id){
-			location.href = '/person.html?id='+id+'&userId='+userId;
+			location.href = '/yue/person.html?id='+id+'&userId='+userId;
 		}
 	</script>
 </body>

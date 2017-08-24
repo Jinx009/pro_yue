@@ -29,7 +29,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/adminIndex.html">用户列表</a></li>
+                <li><a href="/yue/adminIndex.html">用户列表</a></li>
                 <li  class="active"><a href="javascript:location.reload();">二维码管理</a></li>
             </ul>
         </div>
@@ -78,12 +78,12 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
 <script src="https://cdn.bootcss.com/layer/3.0.1/layer.min.js"></script>
-<script src="/themes/js/jquery.qrcode.min.js"></script>
+<script src="/yue/themes/js/jquery.qrcode.min.js"></script>
 <script>
    var _code = {};
     $(function(){
     	 $.ajax({
-     		url:'/admin/QRCodeList.html',
+     		url:'/yue/admin/QRCodeList.html',
      	 	type:'GET',
      	 	dataType:'json',
      	 	success:function(res){
@@ -119,7 +119,7 @@
     	var key = $('#key').val();
     	var description = $('#description').val();
     	$.ajax({
-    		url:'/admin/saveQRCode.html',
+    		url:'/yue/admin/saveQRCode.html',
     		data:'key='+key+'&desc='+description,
     		type:'post',
     		dataType:'json',

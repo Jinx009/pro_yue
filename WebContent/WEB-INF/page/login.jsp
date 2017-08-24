@@ -56,13 +56,13 @@
 			var password = $('#password').val();
 			var params = 'userName=' + userName + '&password=' + password;
 			$.ajax({
-				url : '/doLogin.html',
+				url : '/yue/doLogin.html',
 				type : 'POST',
 				dataType : 'json',
 				data : params,
 				success : function(res) {
 					if ('success' == res.status) {
-						location.href = '/adminIndex.html';
+						location.href = '/yue/adminIndex.html';
 					} else {
 						layer.alert('账号密码错误！');
 					}

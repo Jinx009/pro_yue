@@ -9,12 +9,12 @@
     <meta content="telephone=no,email=no" name="format-detection">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <title>身份认证</title>
-    <script src="/themes/js/jquery.js" ></script>
+    <script src="/yue/themes/js/jquery.js" ></script>
     <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
     <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/Swiper/3.1.7/css/swiper.min.css">
     <script type="text/javascript" src="http://cdn.bootcss.com/Swiper/3.1.7/js/swiper.jquery.min.js"></script>
-    <script src="/themes/js/common.js" ></script>
-     <link rel="stylesheet" type="text/css" href="/themes/css/buildDate.css">
+    <script src="/yue/themes/js/common.js" ></script>
+     <link rel="stylesheet" type="text/css" href="/yue/themes/css/buildDate.css">
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript">
         wx.config({
@@ -100,7 +100,7 @@
         }
 
         function upload(num){
-            var url = "/saveImg.html";
+            var url = "/yue/saveImg.html";
             var params = 'wechatMediaId='+imgArray[num].serverId[0]+
                          '&mediaType=1';
             $.ajax({
@@ -165,14 +165,14 @@
             				 '&danwei='+$('#danwei').val();
             	
             	$.ajax({
-            		url:'/saveInfo.html',
+            		url:'/yue/saveInfo.html',
             		type:'POST',
             		data:params,
             		dataType:'json',
             		success:function(res){
             			if('success'==res.status){
             				alert('资料认证成功！');
-            				location.href = '/select.html?userId='+$('#userId').val();
+            				location.href = '/yue/select.html?userId='+$('#userId').val();
             			}else{
             				alert('该编号已经存在！');
             			}
@@ -190,7 +190,7 @@
         }
         function goPro(){
         	var userId =$('#userId').val();
-        	location.href = '/res.html?userId='+userId;
+        	location.href = '/yue/res.html?userId='+userId;
         }
     </script>
 </head>
@@ -319,9 +319,9 @@
     <div class="ID-list" style="border-top: 0 solid white;" >
         <h3><b style="color: #fe0100;">*</b>上传照片</h3>
         <div class="add-pic">
-            <div><img src="/themes/img/add_pic.jpg" id="img0" onclick="chooseImg(0)" /></div>
-            <div><img src="/themes/img/add_pic.jpg" id="img1" onclick="chooseImg(1)" /></div>
-            <div><img src="/themes/img/add_pic.jpg" id="img2" onclick="chooseImg(2)" /></div>
+            <div><img src="/yue/themes/img/add_pic.jpg" id="img0" onclick="chooseImg(0)" /></div>
+            <div><img src="/yue/themes/img/add_pic.jpg" id="img1" onclick="chooseImg(1)" /></div>
+            <div><img src="/yue/themes/img/add_pic.jpg" id="img2" onclick="chooseImg(2)" /></div>
         </div>
     </div>
     <div class="ID-list">

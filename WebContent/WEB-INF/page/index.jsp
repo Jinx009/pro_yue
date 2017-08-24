@@ -25,7 +25,7 @@
     }
     </style>
     <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/themes/js/common.js"></script>
+    <script type="text/javascript" src="/yue/themes/js/common.js"></script>
     <!-- <script src='/themes/js/snowfall.min.js'></script> -->
     <script type='text/javascript'>
     	function gogogo1(){
@@ -39,9 +39,9 @@
 			var status = $('#status').val();
 			setStorage("userId",userId);
        		if(0==status){
-             	   location.href = '/info.html?userId='+userId;
+             	   location.href = '/yue/info.html?userId='+userId;
             }else{
-             	   location.href = '/select.html?userId='+userId;
+             	   location.href = '/yue/select.html?userId='+userId;
             }
     	}
     </script>
@@ -54,7 +54,7 @@
 	<div class="heart"></div>
 	<div class="stars"></div>
 
-	<img alt="" src="/themes/img/index_44.jpg" onclick="gogogo();" class="test"  id="pic1"  >
+	<img alt="" src="/yue/themes/img/index_44.jpeg" onclick="gogogo();" class="test"  id="pic1"  >
 <!-- 	<img alt="" src="/themes/img/index_22.jpeg" style="display: none;" onclick="gogogo();" id="pic2" class="test" > -->
    </body>
 </html>
