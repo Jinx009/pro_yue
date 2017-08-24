@@ -53,13 +53,13 @@ header .right{
     height: 100%;
 }
 .swiper-pagination-bullet{
-	background: url(/themes/img/point_icon.png) no-repeat;
+	background: url(/yue/themes/img/point_icon.png) no-repeat;
 	background-size: 100%;
 	border-radius: 0;
 	opacity: 1;
 }
 .swiper-pagination-bullet-active{
-	background: url(/themes/img/point_actived_icon.png) no-repeat;
+	background: url(/yue/themes/img/point_actived_icon.png) no-repeat;
 	background-size: 100%;
 }
 .person-inform-content{
@@ -233,7 +233,7 @@ header .right{
 	width: .19rem;
 	height: .35rem;
 	content: '';
-	background: url("/themes/img/next.png") no-repeat;
+	background: url("/yue/themes/img/next.png") no-repeat;
 	background-size: 100%;
 	position: absolute;
 	right: .4rem;
@@ -244,7 +244,7 @@ header .right{
 	width: .59rem;
 	height: .55rem;
 	content: '';
-	background: url("/themes/img/hate_icon.png") no-repeat;
+	background: url("/yue/themes/img/hate_icon.png") no-repeat;
 	background-size: 100%;
 	position: absolute;
 	right: .4rem;
@@ -436,7 +436,7 @@ header .right{
 	height: 62.5%; */
 	width: 9.4rem;
        height: 11.12rem;
-	background: url("/themes/img/select_bg.png") no-repeat;
+	background: url("/yue/themes/img/select_bg.png") no-repeat;
 	background-size: 100%;
 	padding: .67rem 0;
 }
@@ -444,7 +444,7 @@ header .right{
 	width: 30px;
 	height: 30px;
 	margin: 0 auto;
-	background: url("/themes/img/tip_dialog.png");
+	background: url("/yue/themes/img/tip_dialog.png");
 	background-size: 30px;
 }
 .g-dialog-contianer .dialog-content{
@@ -477,7 +477,7 @@ header .right{
 	width: 48px;
 	height: 48px;
 	margin: 0 auto;
-	background: url("/themes/img/close_dialog.png");
+	background: url("/yue/themes/img/close_dialog.png");
 	background-size: 48px;
 	margin-left: -24px;
 	margin-bottom: -24px;
@@ -550,11 +550,11 @@ header .right{
 .one_radio-button > input[type="radio"]:checked {
 	width: .4rem;
 	height: .4rem;
-	background: url("/themes/img/radio_checked_icon.png") no-repeat;
+	background: url("/yue/themes/img/radio_checked_icon.png") no-repeat;
 	background-size: 100%;
 }
 .one_radio-button > input[type="radio"]:checked + .one_radio-button__checkmark:before {
-	background: url("/themes/img/radio_checked_icon.png") no-repeat;
+	background: url("/yue/themes/img/radio_checked_icon.png") no-repeat;
 	background-size: 100%;
 }
 .one_radio-button > .one_radio-button__checkmark:before {
@@ -565,7 +565,7 @@ header .right{
 	box-sizing: border-box;
 	width: .4rem;
 	height: .4rem;
-	background: url("/themes/img/radio_icon.png") no-repeat;
+	background: url("/yue/themes/img/radio_icon.png") no-repeat;
 	background-size: 100%;
 	left: 0;
 }
@@ -596,7 +596,7 @@ header .right{
 .ID-col-one .sel:after{
 	content: '';
 	position: absolute;
-	background: url("/themes/img/bottom.png") no-repeat;
+	background: url("/yue/themes/img/bottom.png") no-repeat;
 	background-size: 100%;
 	right: .27rem;
 	width: .35rem;
@@ -836,7 +836,7 @@ header .menu-btn{
 .ID-col-one .sel1:after{
 	content: '';
 	position: absolute;
-	background: url("/themes/img/bottom.png") no-repeat;
+	background: url("/yue/themes/img/bottom.png") no-repeat;
 	background-size: 100%;
 	right: .27rem;
 	width: .35rem;
