@@ -38,7 +38,7 @@ public class UserConnController{
 	@RequestMapping(value = "/getConnSuccess")
 	public void getSuccess(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		data = new HashMap<String,Object>();
-		String hql = " FROM UserConn WHERE status = 1 ";
+		String hql = " FROM UserConnA WHERE status = 1 ";
 		List<UserConnA> list = userConnAService.getByHql(hql);
 		List<UserConnModel> res = new ArrayList<UserConnModel>();
 		if(list!=null){

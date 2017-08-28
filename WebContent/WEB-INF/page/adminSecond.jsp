@@ -30,7 +30,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/yue/adminIndex.html">用户列表</a></li>
-                <li  class="active"><a href="javascript:location.reload();">约会列表</a></li>
+                <li  class="active"><a >约会管理</a></li>
+                <li><a href="/yue/adminThree.html">约会列表</a></li>
             </ul>
         </div>
     </div>
@@ -40,14 +41,12 @@
     <tr>
         <th>嘉宾一</th>
         <th>嘉宾二</th>
-        <th>约会时间</th>
     </tr>
     </thead>
     <tbody>
     <tr v-for="model in items" >
         <td v-text="model.userName" ></td>
         <td v-text="model.likeUserName" ></td>
-        <td v-text="model.meetingDate" ></td>
     </tr>
     </tbody>
 </table>
