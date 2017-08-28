@@ -41,14 +41,12 @@
     <tr>
         <th>嘉宾一</th>
         <th>嘉宾二</th>
-        <th>约会时间</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="sb" >
     <tr v-for="model in items" >
         <td v-text="model.userName" ></td>
         <td v-text="model.likeUserName" ></td>
-        <td v-text="model.meetingDate" ></td>
     </tr>
     </tbody>
 </table>
@@ -64,7 +62,7 @@
          dataType:'JSON',
          success:function(res){
           new Vue({
-          el: 'body',
+          el: '#sb',
           data:{items:res.data}
           })
          }
