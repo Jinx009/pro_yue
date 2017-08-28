@@ -31,7 +31,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/yue/adminIndex.html">用户列表</a></li>
                 <li  class="active"><a >约会管理</a></li>
-                <li><a href="/yue/adminThree.html">约会列表</a></li>
+                <li><a href="/yue/adminThree.html">二维码管理</a></li>
             </ul>
         </div>
     </div>
@@ -43,7 +43,7 @@
         <th>嘉宾二</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="b" >
     <tr v-for="model in items" >
         <td v-text="model.userName" ></td>
         <td v-text="model.likeUserName" ></td>
@@ -62,7 +62,7 @@
          dataType:'JSON',
          success:function(res){
           new Vue({
-          el: 'body',
+          el: '#b',
           data:{items:res.data}
           })
          }
