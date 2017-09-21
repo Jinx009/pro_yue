@@ -125,21 +125,23 @@
         	var thisAge = parseInt($('#age').val());
         	if($('#age').val()==null||$('#age').val()==''){
         		alert('年龄未填写！');
+        	}else if($('#realName').val()==null||$('#realName').val()==''){
+        		alert('姓名未填写！');
         	}else if($('#mobilePhone').val()==null||$('#mobilePhone').val()==''){
         		alert('手机号未填写！');
         	}else if(thisAge<22||thisAge>50){
         		alert('您填写的年龄超出活动要求，请重新填写!');
-        	}else if($('#likes').val()==null&&$('#likes').val()==''){
+        	}/* else if($('#likes').val()==null&&$('#likes').val()==''){
         		alert('兴趣爱好不能为空！');
-        	}else if($('#address').val()==null&&$('#address').val()==''){
+        	} *//* else if($('#address').val()==null&&$('#address').val()==''){
         		alert('户籍未填写！');
         	}else if($('#job').val()==null&&$('#job').val()==''){
         		alert('职业未填写！');
         	}else if($('#wechatAccount').val()==null&&$('#wechatAccount').val()==''){
         		alert('微信号未填写！');
-        	/* }else if($('#danwei').val()==null&&$('#danwei').val()==''){
-        		alert('单位未填写！'); */
-        	}else if(imgArray[0].restId==null&&imgArray[1].restId==null&&imgArray[2].restId==null){
+        	 }else if($('#danwei').val()==null&&$('#danwei').val()==''){
+        		alert('单位未填写！');
+        	} */else if(imgArray[0].restId==null&&imgArray[1].restId==null&&imgArray[2].restId==null){
         		alert('您必须上传至少一张图片！');
         	}else{
         		if(imgArray[0].restId==null&&imgArray[1].restId==null&&imgArray[2].restId!=null){
@@ -202,9 +204,9 @@
  <!--    <div class="ID-col"></div> -->
     <div class="ID-list">
         <div class="ID-col ID-col-three">
-            <p class="left"><b>*</b><span>昵称</span></p>
+            <p class="left"><b>*</b><span>姓名</span></p>
             <div class="right">
-                <input type="text" id="realName" placeholder="昵称"/>
+                <input type="text" id="realName" placeholder="请填写您的姓名"/>
             </div>
         </div>
         <div class="ID-col ID-col-three">
@@ -222,12 +224,7 @@
                 </label>
             </div>
         </div>
-     <!--    <div class="ID-col ID-col-three">
-            <p class="left"><b>*</b><span>嘉宾号</span></p>
-            <div class="right">
-                <input type="text" id="num" placeholder="请输入您的嘉宾号（入场券号）"/>
-            </div>
-        </div> -->
+     <!--    -->
         <div class="ID-col ID-col-three">
             <p class="left"><b>*</b><span>手机号</span></p>
             <div class="right">
@@ -240,82 +237,94 @@
                 <input type="tel" id="age" placeholder="请输入您的年龄(22-50)"/>
             </div>
         </div>
-        <div class="ID-col ID-col-one">
-            <p class="left"><span>户籍</span></p>
-            <div class="right">
-                <input type="text" id="address" placeholder="请输入您的户籍"/>
-            </div>
-        </div>
-        <div class="ID-col ID-col-one">
-            <p class="left"><span>职业</span></p>
-            <div class="right">
-                <input type="text" id="job" placeholder="请输入您的职业"/>
-            </div>
-        </div>
-        <div class="ID-col ID-col-three" style="display: none;">
-            <p class="left"><b>*</b><span>单位</span></p>
-            <div class="right">
-                <input type="text" id="danwei" placeholder="请输入您的单位"/>
-            </div>
-        </div>
-        <div class="ID-col ID-col-three">
-            <p class="left"><b>*</b><span>微信号</span></p>
-            <div class="right">
-                <input type="text" id="wechatAccount" placeholder="请输入您的微信号"/>
-            </div>
-        </div>
-        <div class="ID-col ID-col-one">
-            <p class="left"><span>兴趣爱好</span></p>
-            <div class="right">
-                <input type="text" id="likes" placeholder="请输入您的兴趣爱好"/>
-            </div>
-        </div>
-        <div class="ID-col ID-col-one">
-            <p class="left"><span>择偶要求</span></p>
-            <div class="right">
-                <input type="text" id="request" placeholder="请输入您心仪的年龄、职业、爱好等"/>
-            </div>
-        </div>
-        <div class="ID-col ID-col-one">
-            <p class="left"><span>星座</span></p>
-            <div class="right sel">
-				 <p id="zodiac" >白羊座</p>
-                <ul>
-                    <li data-value='白羊座'>白羊座</li>
-                    <li data-value='金牛座'>金牛座</li>
-                    <li data-value='双子座'>双子座</li>
-                    <li data-value='巨蟹座'>巨蟹座</li>
-                    <li data-value='狮子座'>狮子座</li>
-                    <li data-value='处女座'>处女座</li>
-                    <li data-value='天秤座'>天秤座</li>
-                    <li data-value='天蝎座'>天蝎座</li>
-                    <li data-value='射手座'>射手座</li>
-                    <li data-value='摩羯座'>摩羯座</li>
-                    <li data-value='水瓶座'>水瓶座</li>
-                    <li data-value='双鱼座'>双鱼座</li>
-                </ul>
-            </div>
-        </div>
-        <div class="ID-col ID-col-one">
-            <p class="left"><span>学历</span></p>
-            <div class="right sel1">
-				 <p id="edu" >本科</p>
-                <ul>
-                    <li data-value='初中'>初中</li>
-                    <li data-value='高中'>高中</li>
-                    <li data-value='大专'>大专</li>
-                    <li data-value='本科'>本科</li>
-                    <li data-value='硕士'>硕士</li>
-                    <li data-value='博士'>博士</li>
-                    <li data-value='海归'>海归</li>
-                </ul>
-            </div>
-        </div>
+		<div style="display: none;"> 
+	 		 <div class="ID-col ID-col-three">
+	            <p class="left"><b>*</b><span>嘉宾号</span></p>
+	            <div class="right">
+	                <input type="text" id="num" placeholder="请输入您的嘉宾号（入场券号）"/>
+	            </div>
+	        </div>     
+	 		<div class="ID-col ID-col-one">
+	            <p class="left"><span>户籍</span></p>
+	            <div class="right">
+	                <input type="text" id="address" placeholder="请输入您的户籍"/>
+	            </div>
+	        </div>
+	        <div class="ID-col ID-col-one">
+	            <p class="left"><span>职业</span></p>
+	            <div class="right">
+	                <input type="text" id="job" placeholder="请输入您的职业"/>
+	            </div>
+	        </div>
+	        <div class="ID-col ID-col-three" style="display: none;">
+	            <p class="left"><b>*</b><span>单位</span></p>
+	            <div class="right">
+	                <input type="text" id="danwei" placeholder="请输入您的单位"/>
+	            </div>
+	        </div>
+	        <div class="ID-col ID-col-three">
+	            <p class="left"><b>*</b><span>微信号</span></p>
+	            <div class="right">
+	                <input type="text" id="wechatAccount" placeholder="请输入您的微信号"/>
+	            </div>
+	        </div>
+	        <div class="ID-col ID-col-one">
+	            <p class="left"><span>兴趣爱好</span></p>
+	            <div class="right">
+	                <input type="text" id="likes" placeholder="请输入您的兴趣爱好"/>
+	            </div>
+	        </div> 
+	        <div class="ID-col ID-col-one">
+	            <p class="left"><span>择偶要求</span></p>
+	            <div class="right">
+	                <input type="text" id="request" placeholder="请输入您心仪的年龄、职业、爱好等"/>
+	            </div>
+	        </div>
+	        <div class="ID-col ID-col-one">
+	            <p class="left"><span>星座</span></p>
+	            <div class="right sel">
+					 <p id="zodiac" >白羊座</p>
+	                <ul>
+	                    <li data-value='白羊座'>白羊座</li>
+	                    <li data-value='金牛座'>金牛座</li>
+	                    <li data-value='双子座'>双子座</li>
+	                    <li data-value='巨蟹座'>巨蟹座</li>
+	                    <li data-value='狮子座'>狮子座</li>
+	                    <li data-value='处女座'>处女座</li>
+	                    <li data-value='天秤座'>天秤座</li>
+	                    <li data-value='天蝎座'>天蝎座</li>
+	                    <li data-value='射手座'>射手座</li>
+	                    <li data-value='摩羯座'>摩羯座</li>
+	                    <li data-value='水瓶座'>水瓶座</li>
+	                    <li data-value='双鱼座'>双鱼座</li>
+	                </ul>
+	            </div>
+	        </div>
+	        <div class="ID-col ID-col-one">
+	            <p class="left"><span>学历</span></p>
+	            <div class="right sel1">
+					 <p id="edu" >本科</p>
+	                <ul>
+	                    <li data-value='初中'>初中</li>
+	                    <li data-value='高中'>高中</li>
+	                    <li data-value='大专'>大专</li>
+	                    <li data-value='本科'>本科</li>
+	                    <li data-value='硕士'>硕士</li>
+	                    <li data-value='博士'>博士</li>
+	                    <li data-value='海归'>海归</li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="ID-list">
+	            <h3 >我的标签</h3>
+	            <textarea placeholder="给自己贴上一些标签吧（可用逗号隔开）" id="tag" ></textarea>
+	        </div>
+	     <div class="ID-list">
+	        <h3>个人简介</h3>
+	        <textarea placeholder="请输入一段介绍自己的话吧(200字数以内)" id="info" maxlength="200" ></textarea>
+	    </div>
     </div>
-    <div class="ID-list">
-            <h3 >我的标签</h3>
-            <textarea placeholder="给自己贴上一些标签吧（可用逗号隔开）" id="tag" ></textarea>
-        </div>
     <div class="ID-list" style="border-top: 0 solid white;" >
         <h3><b style="color: #fe0100;">*</b>上传照片</h3>
         <div class="add-pic">
@@ -323,10 +332,6 @@
             <div><img src="/themes/img/add_pic.jpg" id="img1" onclick="chooseImg(1)" /></div>
             <div><img src="/themes/img/add_pic.jpg" id="img2" onclick="chooseImg(2)" /></div>
         </div>
-    </div>
-    <div class="ID-list">
-        <h3>个人简介</h3>
-        <textarea placeholder="请输入一段介绍自己的话吧(200字数以内)" id="info" maxlength="200" ></textarea>
     </div>
     <div style="margin-left: 10px;margin-top: 20px;" >
     	<input type="checkbox" onclick="return  false;" style="-webkit-appearance: none;" checked="checked" >&nbsp;&nbsp;<span onclick="goPro();" style="font-size: 14px;" >阅读并同意《免责声明》</span>

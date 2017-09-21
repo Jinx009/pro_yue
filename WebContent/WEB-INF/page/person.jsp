@@ -56,6 +56,10 @@
 			</p>
 		</div>
 		<div class="list-col inform-col">
+			<p class="left">手机号：</p>
+			<p class="right" v-text="model.mobilePhone" ></p>
+		</div>
+<!-- 		<div class="list-col inform-col">
 			<p class="left">户籍：</p>
 			<p class="right" v-text="model.address" ></p>
 		</div>
@@ -70,7 +74,7 @@
 		<div class="list-col inform-col" v-if="'1'===model.xStatus" >
 			<p class="left">微信号：</p>
 			<p class="right" v-text="model.wechatAccount" ></p>
-		</div>
+		</div> 
 		<div class="list-col inform-col">
 			<p class="left">兴趣爱好：</p>
 			<p class="right" v-text="model.likes" ></p>
@@ -87,7 +91,8 @@
 			<p class="title"><img src="/themes/img/personal_icon.png"/><span>个人简介</span></p>
 			<p class="text" v-text="model.info" ></p>
 		</div>
-		   <nav class="menu">
+		-->
+	 <nav class="menu">
     <div class="menu-logo">
         <img src="/themes/data/${sessionScope.pic}" onclick="javascript:location.href='/person.html?id=${id}&userId=${id }';"/>
         <p>${sessionScope.name}</p>
