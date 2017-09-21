@@ -169,38 +169,42 @@ public class UserConnController{
 		}else{
 			likeUser.setStarNum(Integer.valueOf(likeUser.getStarNum())+1);
 		}
-		
-		userAService.update(likeUser);
-		String hql = " FROM UserConnA WHERE ((likeUser.id = "+likeUserId+") and (user.id = "+userId+")) or ((likeUser.id = "+userId+") and (user.id = "+likeUserId+")) ";
-		List<UserConnA> list = userConnAService.getByHql(hql);
-		if(null!=list){//互相喜欢
-			UserConnA userConn = list.get(0);
-			userConn.setStatus(1);
-			userConn.setUserGo(1);
-			userConn.setLikeGo(1);
-			if((userConn.getLikeUser().getId().equals(userId)&&userConn.getUser().getId().equals(likeUserId))||
-				(userConn.getLikeUser().getId().equals(likeUserId)&&userConn.getUser().getId().equals(userId))){
-				data.put("code","1");
-				Date date = new Date();
-				userConn.setAddTime(date);
-				userConn.setMeetingDate(getMeetingDate(date));
-				userConnAService.update(userConn);
+		String hql_ = " FROM UserConnA WHERE first = "+userId+" AND (status = 0 OR status = 1 ";
+		List<UserConnA> list_ = userConnAService.getByHql(hql_);
+		if(list_!=null&list_.size()>3){
+			data.put("code","2");
+		}else{
+			userAService.update(likeUser);
+			String hql = " FROM UserConnA WHERE ((likeUser.id = "+likeUserId+") and (user.id = "+userId+")) or ((likeUser.id = "+userId+") and (user.id = "+likeUserId+")) ";
+			List<UserConnA> list = userConnAService.getByHql(hql);
+			if(null!=list){//互相喜欢
+				UserConnA userConn = list.get(0);
+				userConn.setStatus(1);
+				userConn.setUserGo(1);
+				userConn.setLikeGo(1);
+				if((userConn.getLikeUser().getId().equals(userId)&&userConn.getUser().getId().equals(likeUserId))||
+					(userConn.getLikeUser().getId().equals(likeUserId)&&userConn.getUser().getId().equals(userId))){
+					Date date = new Date();
+					userConn.setAddTime(date);
+					userConn.setMeetingDate(getMeetingDate(date));
+					userConnAService.update(userConn);
+					data.put("code","1");
+				}
+			}else{//单向喜欢
+				UserConnA userConn = new UserConnA();
+				userConn.setAddTime(new Date());
+				userConn.setLikeUser(likeUser);
+				userConn.setUser(user);
+				userConn.setStatus(0);
+				userConn.setFirst(user.getId());
+				userConn.setLikeGo(0);
+				userConn.setUserGo(0);
+				userConnAService.insert(userConn);
+				data.put("code","0");
 			}
-		}else{//单向喜欢
-			UserConnA userConn = new UserConnA();
-			userConn.setAddTime(new Date());
-			userConn.setLikeUser(likeUser);
-			userConn.setUser(user);
-			userConn.setStatus(0);
-			userConn.setFirst(user.getId());
-			userConn.setLikeGo(0);
-			userConn.setUserGo(0);
-			
-			userConnAService.insert(userConn);
 		}
 		
 		data = new HashMap<String,Object>();
-		data.put("code","0");
 		data.put("status","success");
 		
 		HttpWebIOHelper._printWebJson(data, response);

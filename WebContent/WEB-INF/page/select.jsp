@@ -182,6 +182,8 @@
 							if('1'==res.code){
 								$('#loveImg').attr('src',ress.data[nowIndex].pic1);
 								showDiv('successDiv');
+							}else if('2'==res.code){
+								showDiv('overDiv');
 							}
 						}
 					})
@@ -243,6 +245,8 @@
 					if('1'==res.code){
 						$('#loveImg').attr('src',ress.data[nowIndex].pic1);
 						showDiv('successDiv');
+					}else if('2'==res.code){
+						showDiv('overDiv');
 					}
 				}
 			})
@@ -351,9 +355,18 @@
         <div class="dialog-window dialog-love">
             <div class="dialog-content"><img src="/themes/img/banner.png" id="loveImg" class="love-img" onclick="goD('${userId }')" /></div>
             <div class="dialog-footer">
-           <!--  <a class="green" href="/list.html?userId=${userId }" >去看我的心仪</a> -->    
             </div>
             <div class="dialog-close" onclick="javascript:location.reload();" ></div>
+        </div>
+    </div>
+      <div class="g-dialog-contianer" id="overDiv" style="display: none;">
+        <div class="dialog-window ">
+            <div class="dialog-header"></div>
+            <div class="dialog-content" style="padding: 0;" >您的3次机会已用完，</div>
+            <div class="dialog-content" style="padding: 0;" >敬请参与我们线下活动</div>
+            <div class="dialog-footer">
+                <a class="green" href="/list.html?userId=${userId }">去看我的心仪对象</a>
+            </div>
         </div>
     </div>
     <div class="g-dialog-contianer" id="noDiv" style="display: none;" >
