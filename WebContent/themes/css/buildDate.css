@@ -66,11 +66,12 @@ header .right{
 /* 	width: 94%; */
 	margin: 0 auto;
 	color: #333;
-	position: absolute;
-    top: 460px;
+/* 	position: absolute; */
+   /*  top: 460px; */
     z-index: 9999;
     background: white;
-    width: 100%;
+    width: 96%;
+    padding-top:20px;
     padding-left: 2%;
 }
 .list-col{

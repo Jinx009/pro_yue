@@ -123,18 +123,18 @@
 			alert('手机号未填写！');
 		} else if (thisAge<22||thisAge>50) {
 			alert('您填写的年龄超出活动要求，请重新填写!');
-		}/* else if($('#likes').val()==null&&$('#likes').val()==''){
-		        		alert('兴趣爱好不能为空！');
-		        	} *//* else if($('#address').val()==null&&$('#address').val()==''){
-		        		alert('户籍未填写！');
-		        	}else if($('#job').val()==null&&$('#job').val()==''){
-		        		alert('职业未填写！');
-		        	}else if($('#wechatAccount').val()==null&&$('#wechatAccount').val()==''){
-		        		alert('微信号未填写！');
-		        	 }else if($('#danwei').val()==null&&$('#danwei').val()==''){
-		        		alert('单位未填写！');
-		        	} */else if (imgArray[0].restId == null
-				&& imgArray[1].restId == null && imgArray[2].restId == null) {
+		}else if($('#wechatAccount').val()==null&&$('#wechatAccount').val()==''){
+    		alert('微信号未填写！');
+   	 	}/* else if($('#likes').val()==null&&$('#likes').val()==''){
+       		alert('兴趣爱好不能为空！');
+       	} *//* else if($('#address').val()==null&&$('#address').val()==''){
+       		alert('户籍未填写！');
+       	}else if($('#job').val()==null&&$('#job').val()==''){
+       		alert('职业未填写！');
+       	}else if($('#danwei').val()==null&&$('#danwei').val()==''){
+       		alert('单位未填写！');
+       	} */
+		else if (imgArray[0].restId == null&& imgArray[1].restId == null && imgArray[2].restId == null) {
 			alert('您必须上传至少一张图片！');
 		} else {
 			if (imgArray[0].restId == null && imgArray[1].restId == null
@@ -240,6 +240,14 @@
 		</div>
 		<div class="ID-col ID-col-three">
 			<p class="left">
+				<b>*</b><span>微信号</span>
+			</p>
+			<div class="right">
+				<input type="text" id="wechatAccount" placeholder="请输入您的微信号" />
+			</div>
+		</div>
+		<div class="ID-col ID-col-three">
+			<p class="left">
 				<b>*</b><span>年龄</span>
 			</p>
 			<div class="right">
@@ -277,14 +285,6 @@
 				</p>
 				<div class="right">
 					<input type="text" id="danwei" placeholder="请输入您的单位" />
-				</div>
-			</div>
-			<div class="ID-col ID-col-three">
-				<p class="left">
-					<b>*</b><span>微信号</span>
-				</p>
-				<div class="right">
-					<input type="text" id="wechatAccount" placeholder="请输入您的微信号" />
 				</div>
 			</div>
 			<div class="ID-col ID-col-one">

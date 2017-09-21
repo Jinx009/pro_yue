@@ -159,7 +159,7 @@ public class UserConnController{
 	 */
 	@RequestMapping(value = "/insertConn")
 	public void insertUserConn(HttpServletRequest request,HttpServletResponse response) throws Exception{
-		System.out.println("userId="+request.getParameter("userId"));
+		Map<String, Object> data = new HashMap<String,Object>();
 		Integer userId = Integer.valueOf(request.getParameter("userId"));
 		Integer likeUserId = Integer.valueOf(request.getParameter("likeUserId"));
 		UserA user = userAService.findById(userId);
@@ -169,9 +169,9 @@ public class UserConnController{
 		}else{
 			likeUser.setStarNum(Integer.valueOf(likeUser.getStarNum())+1);
 		}
-		String hql_ = " FROM UserConnA WHERE first = "+userId+" AND (status = 0 OR status = 1 ";
+		String hql_ = " FROM UserConnA WHERE first = "+userId+" AND (status = 0 OR status = 1 )";
 		List<UserConnA> list_ = userConnAService.getByHql(hql_);
-		if(list_!=null&list_.size()>3){
+		if(list_!=null&&!list_.isEmpty()&&list_.size()>=2){
 			data.put("code","2");
 		}else{
 			userAService.update(likeUser);
@@ -204,7 +204,6 @@ public class UserConnController{
 			}
 		}
 		
-		data = new HashMap<String,Object>();
 		data.put("status","success");
 		
 		HttpWebIOHelper._printWebJson(data, response);

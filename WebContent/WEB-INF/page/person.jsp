@@ -16,11 +16,14 @@
     <script type="text/javascript" src="http://cdn.bootcss.com/Swiper/3.1.7/js/swiper.jquery.min.js"></script>
     <script src="/themes/js/common.js" ></script>
     <script src="/themes/js/vue.min.js" ></script>
-     <link rel="stylesheet" type="text/css" href="/themes/css/buildDate.css">
+     <link rel="stylesheet" type="text/css" href="/themes/css/buildDate.css?_v=11">
      <style type="text/css">
      .swiper-container{
      	height: 100%;
      }
+     body {
+		background: white;
+	}
      </style>
 
 </head>
@@ -55,10 +58,14 @@
 				<b v-text="model.age+'岁'" ></b>
 			</p>
 		</div>
-		<div class="list-col inform-col">
+		<!-- <div class="list-col inform-col">
 			<p class="left">手机号：</p>
 			<p class="right" v-text="model.mobilePhone" ></p>
-		</div>
+		</div> -->
+		<div class="list-col inform-col" v-if="'1'===model.xStatus" >
+			<p class="left">微信号：</p>
+			<p class="right" v-text="model.wechatAccount" ></p>
+		</div> 
 <!-- 		<div class="list-col inform-col">
 			<p class="left">户籍：</p>
 			<p class="right" v-text="model.address" ></p>
@@ -71,10 +78,6 @@
 			<p class="left">单位：</p>
 			<p class="right" v-text="model.danwei" ></p>
 		</div>
-		<div class="list-col inform-col" v-if="'1'===model.xStatus" >
-			<p class="left">微信号：</p>
-			<p class="right" v-text="model.wechatAccount" ></p>
-		</div> 
 		<div class="list-col inform-col">
 			<p class="left">兴趣爱好：</p>
 			<p class="right" v-text="model.likes" ></p>

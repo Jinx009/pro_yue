@@ -59,7 +59,7 @@
     });
    
     $(function(){
-    	var userId = $('#userId').val();
+    	 var userId = $('#userId').val();
     	var newStatus = getStorage("newStatus");
     	if(userId==null||userId==''){
     		userId = getStorage("userId");
@@ -184,6 +184,8 @@
 								showDiv('successDiv');
 							}else if('2'==res.code){
 								showDiv('overDiv');
+							}else{
+								
 							}
 						}
 					})
@@ -205,7 +207,6 @@
 	function hate(){
 		var nowIndex = index;
 		index++;
-		console.log(index);
 		showStatus();
 		$('#'+ress.data[nowIndex].id).animate({ left: '-850px',top:'1300px' },'slow',function(){
 			 $('#'+ress.data[nowIndex].id).hide();
@@ -247,6 +248,8 @@
 						showDiv('successDiv');
 					}else if('2'==res.code){
 						showDiv('overDiv');
+					}else{
+						
 					}
 				}
 			})
