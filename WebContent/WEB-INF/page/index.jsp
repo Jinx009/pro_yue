@@ -54,7 +54,7 @@
 	<div class="heart"></div>
 	<div class="stars"></div>
 
-	<img alt="" src="/themes/img/index_44.jpg" onclick="gogogo();" class="test"  id="pic1"  >
+	<img alt="" src="/themes/img/0922.jpeg" onclick="gogogo();" class="test"  id="pic1"  >
 <!-- 	<img alt="" src="/themes/img/index_22.jpeg" style="display: none;" onclick="gogogo();" id="pic2" class="test" > -->
    </body>
 </html>
