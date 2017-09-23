@@ -41,12 +41,14 @@
     <tr>
         <th>嘉宾一</th>
         <th>嘉宾二</th>
+        <th>添加时间</th>
     </tr>
     </thead>
     <tbody id="sb" >
     <tr v-for="model in items" >
         <td v-text="model.userName" ></td>
         <td v-text="model.likeUserName" ></td>
+        <td v-text="model.addTime" ></td>
     </tr>
     </tbody>
 </table>

@@ -51,6 +51,7 @@
 <table class="table table-striped info-table">
     <thead>
         <tr>
+        	<th>注册时间</th>
             <th>图片</th>
             <th>姓名</th>
             <th>手机号码</th>
@@ -63,6 +64,7 @@
     </thead>
     <tbody id="users" >
         <tr v-for="model in users" >
+        	<td v-text="model.addTime" ></td>
             <td>
                 <img v-bind:src="model.pic1" height="38px" >
             </td>
